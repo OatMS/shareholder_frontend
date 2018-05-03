@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '@/components/Login/Login'
-import Bg from '@/components/background/Bg'
-
+import ManageAgenda from '@/components/ManageAgenda'
+import QRScaner from '@/components/QRScaner'
+// import Bg from '@/components/background/Bg'
 
 Vue.use(Router)
 
