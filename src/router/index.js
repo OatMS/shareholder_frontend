@@ -5,6 +5,7 @@ import Login from '@/components/Login'
 import ManageAgenda from '@/components/ManageAgenda'
 import QRScaner from '@/components/QRScaner'
 
+
 Vue.use(Router)
 
 export default new Router({
