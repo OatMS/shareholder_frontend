@@ -17,9 +17,36 @@ export default {
 
 @font-face {
     font-family: Sukhumvit;
-    src: src('@/assets/Sukhumvit.ttf');
+    src: url('/static/font/Sukhumvit.ttf') format('truetype');
 }
-.application {
-    font-family: Sukhumvit;
+
+
+@font-face {
+  font-family: Sukhumvit;
+  src: url("/static/font/Sukhumvit.ttf") format('truetype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: Sukhumvit;
+  src: url("/static/font/Sukhumvit.ttf") format('truetype');
+  font-weight: thin;
+}
+
+@font-face {
+  font-family: Sukhumvit;
+  src: url("/static/font/Sukhumvit.ttf") format('truetype');
+  font-weight: medium;
+}
+
+@font-face {
+  font-family: Sukhumvit;
+  src: url("/static/font/Sukhumvit.ttf") format('truetype');
+  font-weight: lighter;
+}
+div {
+  font-family: Sukhumvit;
+  font-weight: 600;
+  font-size: 110%;
 }
 </style>
