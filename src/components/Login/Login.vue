@@ -51,4 +51,11 @@ export default {
 </script>
 
 <style lang="css">
+app {
+  background-image: url('/static/100.jpg');
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 </style>
