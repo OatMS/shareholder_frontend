@@ -6,21 +6,20 @@
 
 <script>
 export default {
-  data () {
-    return {
-      clipped: false,
-      drawer: true,
-      fixed: false,
-      items: [{
-        icon: 'bubble_chart',
-        title: 'Inspire'
-      }],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js'
-    }
-  },
   name: 'App'
 }
 </script>
+
+<style media="screen">
+.toolbar__content{
+  background-color: green;
+}
+
+@font-face {
+    font-family: Sukhumvit;
+    src: src('@/assets/Sukhumvit.ttf');
+}
+.application {
+    font-family: Sukhumvit;
+}
+</style>
