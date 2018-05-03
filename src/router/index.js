@@ -11,7 +11,7 @@ export default new Router({
   mode: 'history',
   routes: [
     { path: '/login', component: Login },
-    { path: '/manaegAgenda', component: ManageAgenda },
+    { path: '/manageAgenda', component: ManageAgenda },
     { path: '/qrscaner', component: QRScaner }
   ]
 })
