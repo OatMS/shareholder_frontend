@@ -1,6 +1,7 @@
 <template lang="html">
   <v-app id="Login">
     <v-content>
+      <div id="app">
       <v-container fluid fill-height>
         <v-layout align-center justify-center>
           <v-flex xs12 sm8 md4>
@@ -17,13 +18,15 @@
               </v-toolbar>
               <v-card-text>
                 <v-form>
-                  <v-text-field prepend-icon="person" name="login" label="Username" type="text"></v-text-field>
-                  <v-text-field prepend-icon="lock" name="password" label="Password" id="password" type="password"></v-text-field>
+                  <v-text-field @keyup.enter="getLogin()" autocapitalize="off" prepend-icon="person" name="login" label="Username" type="text" autocomplete="off"></v-text-field>
+                  <v-text-field @keyup.enter="getLogin()" prepend-icon="lock" name="password" label="Password" id="password" v-model="password" type="password"></v-text-field>
                 </v-form>
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn dark color="green">Login</v-btn>
+                <v-btn depressed class="widthfull" color="success" @click="getLogin()">
+                  <v-icon>lock_open</v-icon>Login
+                </v-btn>
               </v-card-actions>
               <v-footer class="pa-3">
                 <v-flex xs12 py-3 text-xs-center black--text>
@@ -32,30 +35,48 @@
               </v-footer>
             </v-card>
           </v-flex>
+
         </v-layout>
       </v-container>
+      </div>
     </v-content>
   </v-app>
 </template>
 
 <script>
 export default {
-  data: () => ({
-    drawer: null
-  }),
+  data () {
+    return {
+      username: '',
+      password: '',
+      isLoading: false
+    }
+  },
 
-  props: {
-    source: String
+  methods: {
+    getLogin () {
+      this.isLoading = true
+      if (this.username.trim() === '') {
+        this.isLoading = false
+        this.$swal('กรุณากรอก Username', '', 'warning')
+      } else if (this.password.trim() === '') {
+        this.isLoading = false
+        this.$swal('กรุณากรอก Password', '', 'warning')
+      }
+      // $('input').blur()
+      // // this.Loading = false
+      // // console.log('login')
+    }
   }
 }
 </script>
 
 <style lang="css">
-app {
-  background-image: url('/static/100.jpg');
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+#app {
+background-image: url('/static/img/icons/100.jpg');
+height: 100%;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
 }
 </style>
