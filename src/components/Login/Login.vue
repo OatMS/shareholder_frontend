@@ -8,18 +8,11 @@
             <v-card class="elevation-12">
               <v-toolbar dark color="green">
                 <v-toolbar-title>INET Shareholder Meeting</v-toolbar-title>
-                <v-spacer></v-spacer>
-                <v-tooltip bottom>
-                  <v-btn icon large :href="source" target="_blank" slot="activator">
-                    <v-icon> autorenew </v-icon>
-                  </v-btn>
-                  <span> Refresh </span>
-                </v-tooltip>
               </v-toolbar>
               <v-card-text>
                 <v-form>
-                  <v-text-field @keyup.enter="getLogin()" autocapitalize="off" prepend-icon="person" name="login" label="Username" v-model="username" type="text" autocomplete="off"></v-text-field>
-                  <v-text-field @keyup.enter="getLogin()" prepend-icon="lock" name="password" label="Password" id="password" v-model="password" type="password"></v-text-field>
+                  <v-text-field @keyup.enter="getLogin()" autocapitalize="off" prepend-icon="person" color="amber accent-4" name="login" label="Username" v-model="username"  type="text" autocomplete="off"></v-text-field>
+                  <v-text-field @keyup.enter="getLogin()" prepend-icon="lock" color="amber accent-4" name="password" label="Password" id="password" v-model="password" type="password"></v-text-field>
                 </v-form>
               </v-card-text>
               <v-card-actions>
@@ -58,10 +51,10 @@ export default {
       this.isLoading = true
       if (this.username.trim() === '') {
         this.isLoading = false
-        this.$swal('กรุณากรอก Username', '', 'warning')
+        this.$swal('กรุณากรอก Username', '', 'error')
       } else if (this.password.trim() === '') {
         this.isLoading = false
-        this.$swal('กรุณากรอก Password', '', 'warning')
+        this.$swal('กรุณากรอก Password', '', 'error')
       }
       // $('input').blur()
       this.Loading = false
