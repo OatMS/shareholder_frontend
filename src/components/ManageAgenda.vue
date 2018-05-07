@@ -65,7 +65,7 @@
 </v-btn>
 </v-toolbar>
 <v-content>
-  <QRScanner/>
+  <router-view/>
 </v-content>
 <v-btn fab bottom right color="pink" dark fixed @click.stop="dialog = !dialog" >
 <v-icon>add</v-icon>
@@ -114,7 +114,7 @@
 </template>
 
 <script>
-import QRScanner from '@/components/QRScaner'
+
 export default {
   data () {
     return {
@@ -124,28 +124,28 @@ export default {
         { icon: 'contacts', text: 'จัดการวาระ' },
         { icon: 'history', text: 'Frequently contacted' },
         { icon: 'content_copy', text: 'Duplicates' },
-        {
-          icon: 'keyboard_arrow_up',
-          'icon-alt': 'keyboard_arrow_down',
-          text: 'Labels',
-          model: true,
-          children: [
-            { icon: 'add', text: 'Create label' }
-          ]
-        },
-        {
-          icon: 'keyboard_arrow_up',
-          'icon-alt': 'keyboard_arrow_down',
-          text: 'More',
-          model: false,
-          children: [
-            { text: 'Import' },
-            { text: 'Export' },
-            { text: 'Print' },
-            { text: 'Undo changes' },
-            { text: 'Other contacts' }
-          ]
-        },
+        // {
+        //   icon: 'keyboard_arrow_up',
+        //   'icon-alt': 'keyboard_arrow_down',
+        //   text: 'Labels',
+        //   model: true,
+        //   children: [
+        //     { icon: 'add', text: 'Create label' }
+        //   ]
+        // },
+        // {
+        //   icon: 'keyboard_arrow_up',
+        //   'icon-alt': 'keyboard_arrow_down',
+        //   text: 'More',
+        //   model: false,
+        //   children: [
+        //     { text: 'Import' },
+        //     { text: 'Export' },
+        //     { text: 'Print' },
+        //     { text: 'Undo changes' },
+        //     { text: 'Other contacts' }
+        //   ]
+        // },
         { icon: 'settings', text: 'Settings' },
         { icon: 'chat_bubble', text: 'Send feedback' },
         { icon: 'help', text: 'Help' },
@@ -156,9 +156,6 @@ export default {
   },
   props: {
     source: String
-  },
-  components: {
-    QRScanner
   }
 }
 </script>
