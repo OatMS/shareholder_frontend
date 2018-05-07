@@ -18,7 +18,7 @@
               </v-toolbar>
               <v-card-text>
                 <v-form>
-                  <v-text-field @keyup.enter="getLogin()" autocapitalize="off" prepend-icon="person" name="login" label="Username" type="text" autocomplete="off"></v-text-field>
+                  <v-text-field @keyup.enter="getLogin()" autocapitalize="off" prepend-icon="person" name="login" label="Username" v-model="username" type="text" autocomplete="off"></v-text-field>
                   <v-text-field @keyup.enter="getLogin()" prepend-icon="lock" name="password" label="Password" id="password" v-model="password" type="password"></v-text-field>
                 </v-form>
               </v-card-text>
@@ -64,8 +64,8 @@ export default {
         this.$swal('กรุณากรอก Password', '', 'warning')
       }
       // $('input').blur()
-      // // this.Loading = false
-      // // console.log('login')
+      this.Loading = false
+      console.log('login')
     }
   }
 }
