@@ -11,13 +11,13 @@
               </v-toolbar>
               <v-card-text>
                 <v-form>
-                  <v-text-field @keyup.enter="getLogin()" autocapitalize="off" prepend-icon="person" color="amber accent-4" name="login" label="Username" v-model="username"  type="text" autocomplete="off"></v-text-field>
-                  <v-text-field @keyup.enter="getLogin()" prepend-icon="lock" color="amber accent-4" name="password" label="Password" id="password" v-model="password" type="password"></v-text-field>
+                  <v-text-field @keyup.enter="login()" autocapitalize="off" prepend-icon="person" color="amber accent-4" name="login" label="Username" v-model="username"  type="text" autocomplete="off"></v-text-field>
+                  <v-text-field @keyup.enter="login()" prepend-icon="lock" color="amber accent-4" name="password" label="Password" id="password" v-model="password" type="password"></v-text-field>
                 </v-form>
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn depressed class="widthfull" color="success" @click="getLogin()">
+                <v-btn depressed class="widthfull" color="success" @click="login">
                   <v-icon>lock_open</v-icon>Login
                 </v-btn>
               </v-card-actions>
@@ -47,19 +47,57 @@ export default {
   },
 
   methods: {
-    getLogin () {
+    // // getLogin () {
+    // //   this.isLoading = true
+    // //   if (this.username.trim() === '') {
+    // //     this.isLoading = false
+    // //     this.$swal('กรุณากรอก Username', '', 'error')
+    // //   } else if (this.password.trim() === '') {
+    // //     this.isLoading = false
+    // //     this.$swal('กรุณากรอก Password', '', 'error')
+    // //   }
+    // //   // $('input').blur()
+    // //   this.Loading = false
+    // //   // console.log('login')
+    // },
+    login () {
+      var data = {
+        'username': this.username,
+        'password': this.password
+      }
       this.isLoading = true
       if (this.username.trim() === '') {
         this.isLoading = false
         this.$swal('กรุณากรอก Username', '', 'error')
+        return
       } else if (this.password.trim() === '') {
         this.isLoading = false
         this.$swal('กรุณากรอก Password', '', 'error')
+        return
       }
-      // $('input').blur()
       this.Loading = false
-      // console.log('login')
+
+      this.axios.post('http://203.154.58.87:5000' + '/login', data).then((response) => {
+        var result = response.data
+        if (response.status === 200) {
+          console.log(result)
+        }
+        if (result.status === 'success') {
+          window.location = '/manageAgenda'
+        } else {
+          alert('fail')
+        }
+      })
     }
+    // mounted () {
+    //   this.axios.get('http://203.154.58.87:5000' + '/login').then((response) => {
+    //     var result = response.data
+    //     if (response.status === 200) {
+    //       this.username = result1
+    //       console.log(result)
+    //     }
+    //   }
+    // }
   }
 }
 </script>
