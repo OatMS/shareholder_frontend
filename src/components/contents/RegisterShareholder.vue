@@ -21,7 +21,7 @@
       </v-flex>
     </v-layout>
     <div class="formInfo" v-if="showInfo" v-show="showInfo">
-      <v-layout row wrap class="mt-4">
+      <v-layout row wrap class="mt-4" v-hide="selectedItem.info.title == 'บริษัท' ">
         <v-flex xs12 sm2>
           <h2>ชื่อ-นามสกุล :</h2>
         </v-flex>
@@ -29,7 +29,7 @@
           <h2>{{selectedItem.info.title}} {{selectedItem.info.firstname}} {{selectedItem.info.lastname}}</h2>
         </v-flex>
       </v-layout>
-      <v-layout row wrap class="mt-4">
+      <v-layout row wrap class="mt-4" v-show="selectedItem.info.title == 'บริษัท' ">
         <v-flex xs12 sm2>
           <h2>ชื่อบริษัท :</h2>
         </v-flex>
@@ -43,7 +43,7 @@
           <h2>จำนวนหุ้น</h2>
         </v-flex>
         <v-flex xs12 sm3>
-          <h2>{{selectedItem.info.q_share}}</h2>
+          <h2>{{selectedItem.info.q_share.toLocaleString()}}</h2>
         </v-flex>
         <v-flex xs12 sm1>
           <h2>หุ้น</h2>
