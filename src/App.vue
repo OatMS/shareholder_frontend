@@ -47,6 +47,5 @@ export default {
 div {
   font-family: Sukhumvit;
   font-weight: 600;
-  /* font-size: 110%; */
 }
 </style>
