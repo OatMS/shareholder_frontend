@@ -85,7 +85,9 @@ export default {
         if (result.status === 'success') {
           window.location = '/manageAgenda'
         } else {
-          alert('fail')
+          this.isLoading = false
+          this.$swal('กรุณาตรวจสอบอีเมลและรหัสผ่านใหม่อีกครั้ง', '', 'error')
+          return
         }
       })
     }
