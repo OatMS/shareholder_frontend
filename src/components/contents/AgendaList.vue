@@ -13,17 +13,17 @@
                 <v-flex xs12 sm6 md4>
                   <v-text-field v-model="editedItem.name" label="วาระที่"></v-text-field>
                 </v-flex>
-                <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.calories" label="Calories"></v-text-field>
+                <v-flex xs12>
+                  <v-text-field v-model="editedItem.calories" label="ชื่อวาระ"></v-text-field>
                 </v-flex>
-                <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.fat" label="Fat (g)"></v-text-field>
+                <v-flex xs12>
+                  <v-text-field v-model="editedItem.fat" label="ชื่อวาระย่อย"></v-text-field>
                 </v-flex>
-                <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.carbs" label="Carbs (g)"></v-text-field>
+                <v-flex xs12>
+                  <v-text-field v-model="editedItem.carbs" label="รูปภาพ"></v-text-field>
                 </v-flex>
-                <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.protein" label="Protein (g)"></v-text-field>
+                <v-flex xs12>
+                  <v-text-field v-model="editedItem.protein" label="การนับคะแนน"></v-text-field>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -84,22 +84,22 @@
         editedIndex: -1,
         editedItem: {
           name: '',
-          calories: 0,
-          fat: 0,
-          carbs: 0,
-          protein: 0
+          calories: '',
+          fat: '',
+          carbs: '',
+          protein: ''
         },
         defaultItem: {
           name: '',
-          calories: 0,
-          fat: 0,
-          carbs: 0,
-          protein: 0
+          calories: '',
+          fat: '',
+          carbs: '',
+          protein: ''
         }
       }),
       computed: {
         formTitle () {
-          return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
+          return this.editedIndex === -1 ? 'เพิ่มวาระ' : 'แก้ไขข้อมูล'
         }
       },
       watch: {
@@ -143,45 +143,73 @@
             },
             {
               name: '5',
-              calories: 356,
+              calories: 'พิจารณาจัดสรรกำไรสุทธิเป็นทุนสำรองตามกฎหมายและการจ่ายเงินปันผลสำหรับผลประกอบการประจำปี 2560',
               fat: 16.0,
               carbs: 49,
               protein: 3.9
             },
             {
               name: '6',
-              calories: 375,
+              calories: 'พิจารณาเลือกตั้งกรรมการแทนกรรมการที่ออกตามวาระประจำปี 2561 (ประวัติโดยสังเขปของบุคคลที่ได้รับการเสนอชื่อเพิ่มพิจารณาเลือกตั้งเป็นกรรมการแทนกรรมการที่ออกตามวาระตามสิ่งที่ส่งมาด้วยลำดับที่ 3)',
               fat: 0.0,
               carbs: 94,
               protein: 0.0
             },
             {
               name: '6.1',
-              calories: 392,
+              calories: 'พิจารณาเลือกตั้งกรรมการแทนกรรมการที่ออกตามวาระประจำปี 2561 (ประวัติโดยสังเขปของบุคคลที่ได้รับการเสนอชื่อเพิ่มพิจารณาเลือกตั้งเป็นกรรมการแทนกรรมการที่ออกตามวาระตามสิ่งที่ส่งมาด้วยลำดับที่ 3) นายอนิรุทธ์ หิรัญรักษ์',
               fat: 0.2,
               carbs: 98,
               protein: 0
             },
             {
               name: '6.2',
-              calories: 408,
+              calories: 'พิจารณาเลือกตั้งกรรมการแทนกรรมการที่ออกตามวาระประจำปี 2561 (ประวัติโดยสังเขปของบุคคลที่ได้รับการเสนอชื่อเพิ่มพิจารณาเลือกตั้งเป็นกรรมการแทนกรรมการที่ออกตามวาระตามสิ่งที่ส่งมาด้วยลำดับที่ 3) นางมรกต กุลธรรมโยธิน',
               fat: 3.2,
               carbs: 87,
               protein: 6.5
             },
             {
               name: '6.3',
-              calories: 452,
+              calories: 'พิจารณาเลือกตั้งกรรมการแทนกรรมการที่ออกตามวาระประจำปี 2561 (ประวัติโดยสังเขปของบุคคลที่ได้รับการเสนอชื่อเพิ่มพิจารณาเลือกตั้งเป็นกรรมการแทนกรรมการที่ออกตามวาระตามสิ่งที่ส่งมาด้วยลำดับที่ 3) นายมรกต เธียรมนตรี',
               fat: 25.0,
               carbs: 51,
               protein: 4.9
             },
             {
               name: '6.4',
-              calories: 518,
+              calories: 'พิจารณาเลือกตั้งกรรมการแทนกรรมการที่ออกตามวาระประจำปี 2561 (ประวัติโดยสังเขปของบุคคลที่ได้รับการเสนอชื่อเพิ่มพิจารณาเลือกตั้งเป็นกรรมการแทนกรรมการที่ออกตามวาระตามสิ่งที่ส่งมาด้วยลำดับที่ 3) นางสาวนฤมล วังศธรธนคุณ',
               fat: 26.0,
               carbs: 65,
               protein: 7
+            },
+            {
+              name: '7',
+              calories: 'พิจารณาอนุมัติการกำหนดค่าตอบแทนกรรมการ',
+              fat: 25.0,
+              carbs: 51,
+              protein: 4.9
+            },
+            {
+              name: '8',
+              calories: 'พิจารณาแต่งตั้งผู้สอบบัญชีและกำหนดค่าสอบบัญชีประจำปี 2561 (รายละเอียดตามสิ่งที่ส่งมาด้วยลำดับที่ 6)',
+              fat: 25.0,
+              carbs: 51,
+              protein: 4.9
+            },
+            {
+              name: '9',
+              calories: 'พิจารณาอนุมัติการแก้ไขข้อบังคับ บริษัท อินเทอร์เน็ตประเทศไทย จำกัด(มหาชน) ข้อ 16 (รายละเอียดตามสิ่งที่ส่งมาด้วยลำดับที่ 7)',
+              fat: 25.0,
+              carbs: 51,
+              protein: 4.9
+            },
+            {
+              name: '10',
+              calories: 'พิจารณาเรื่องอื่นๆ (ถ้ามี)',
+              fat: 25.0,
+              carbs: 51,
+              protein: 4.9
             }
           ]
         },
