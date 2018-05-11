@@ -1,7 +1,8 @@
 <template lang="html">
   <div>
+    <h1 style="text-align:center; font-size:2.3em; " class="mt-4">วาระการประชุมครั้งที่ 2 ปี 2018</h1>
       <v-dialog v-model="dialog" max-width="500px">
-        <v-btn slot="activator" color="primary" dark class="mb-2">New Item</v-btn>
+        <v-btn slot="activator" color="primary" dark class="mb-3">เพิ่มวาระ</v-btn>
         <v-card>
           <v-card-title>
             <span class="headline">{{ formTitle }}</span>
@@ -10,7 +11,7 @@
             <v-container grid-list-md>
               <v-layout wrap>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.name" label="Dessert name"></v-text-field>
+                  <v-text-field v-model="editedItem.name" label="วาระที่"></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
                   <v-text-field v-model="editedItem.calories" label="Calories"></v-text-field>
@@ -42,11 +43,11 @@
       >
         <template slot="items" slot-scope="props">
           <td>{{ props.item.name }}</td>
-          <td class="text-xs-right">{{ props.item.calories }}</td>
-          <td class="text-xs-right">{{ props.item.fat }}</td>
+          <td class="text-xs-left">{{ props.item.calories }}</td>
+          <!-- <td class="text-xs-right">{{ props.item.fat }}</td>
           <td class="text-xs-right">{{ props.item.carbs }}</td>
-          <td class="text-xs-right">{{ props.item.protein }}</td>
-          <td class="justify-center layout px-0">
+          <td class="text-xs-right">{{ props.item.protein }}</td> -->
+          <td class="justify-right layout px-0">
             <v-btn icon class="mx-0" @click="editItem(props.item)">
               <v-icon color="teal">edit</v-icon>
             </v-btn>
@@ -73,10 +74,10 @@
             sortable: false,
             value: 'name'
           },
-          { text: 'Calories', value: 'calories' },
-          { text: 'Fat (g)', value: 'fat' },
-          { text: 'Carbs (g)', value: 'carbs' },
-          { text: 'Protein (g)', value: 'protein' },
+          { text: 'ชื่อวาระ', value: 'calories', sortable: false },
+          // { text: 'Fat (g)', value: 'fat', sortable: false },
+          // { text: 'Carbs (g)', value: 'carbs', sortable: false },
+          // { text: 'Protein (g)', value: 'protein', sortable: false },
           { text: 'Actions', value: 'name', sortable: false }
         ],
         desserts: [],
@@ -114,28 +115,28 @@
           this.desserts = [
             {
               name: '1',
-              calories: 159,
+              calories: 'เรื่องประธานแจ้งเพื่อทราบ (ถ้ามี)',
               fat: 6.0,
               carbs: 24,
               protein: 4.0
             },
             {
               name: '2',
-              calories: 237,
+              calories: 'พิจารณารับรองรายงานการประชุมสามัญผู้ถือหุ้นประจำปี 2560 ซึ่งประชุมเมื่อวันที่ 21 เมษายน 2560 (รายละเอียดตามสิ่งที่ส่งมาด้วยลำดับที่ 1)',
               fat: 9.0,
               carbs: 37,
               protein: 4.3
             },
             {
               name: '3',
-              calories: 262,
+              calories: 'รับทราบรายงานคณะกรรมการบริษัทเกี่ยวกับผลการดำเนินงานประจำปี 2560 (รายละเอียดตามสิ่งที่ส่งมาด้วยลำดับที่ 2)',
               fat: 16.0,
               carbs: 23,
               protein: 6.0
             },
             {
               name: '4',
-              calories: 305,
+              calories: 'พิจารณาอนุมัติงบการเงินประจำปีสิ้นสุด ณ วันที่ 31 ธันวาคม 2560 ซึ่งผ่านการตรวจสอบจากผู้สอบบัญชี (รายละเอียดตามสิ่งที่ส่งมาด้วยลำดับที่ 2)',
               fat: 3.7,
               carbs: 67,
               protein: 4.3
