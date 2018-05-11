@@ -21,7 +21,7 @@
       </v-flex>
     </v-layout>
     <div class="formInfo" v-if="showInfo" v-show="showInfo">
-      <v-layout row wrap class="mt-4" v-hide="selectedItem.info.title == 'บริษัท' ">
+      <v-layout row wrap class="mt-4" v-show="selectedItem.info.title != 'บริษัท' ">
         <v-flex xs12 sm2>
           <h2>ชื่อ-นามสกุล :</h2>
         </v-flex>
@@ -54,18 +54,21 @@
           <h2>สถานะ :</h2>
         </v-flex>
         <v-flex xs12 sm4>
-          <h2>ยังไม่ได้ลงทะเบียน</h2>
+          <h2 v-show="selectedItem.info.register != 0">ยังไม่ได้ลงทะเบียน</h2>
+          <h2 v-show="selectedItem.info.register == 0">ลงทะเบียนแล้ว</h2>
         </v-flex>
       </v-layout>
       <v-layout row wrap class="mt-4">
         <v-flex xs12 sm2 >
-          <v-btn style="width:100% height:60px" @click.stop="dialog2 = true" large color="success">ผู้มอบฉันทะ</v-btn>
+          <v-btn  v-show="selectedItem.info.register != 0" style="width:100% height:60px" @click.stop="dialog2 = true" large color="success">ผู้มอบฉันทะ</v-btn>
+          <v-btn  v-show="selectedItem.info.register == 0" style="width:100% height:60px" @click.stop="dialog2 = true" large disabled >ผู้มอบฉันทะ</v-btn>
         </v-flex>
         <v-flex xs12 sm6>
           <!-- <h2>สถานะ :</h2> -->
         </v-flex >
         <v-flex xs12 sm2 style="text-align:right;" >
-          <v-btn style="width:100% height:60px" large color="success">ลงทะเบียน</v-btn>
+          <v-btn v-show="selectedItem.info.register != 0" style="width:100% height:60px" large color="success">ลงทะเบียน</v-btn>
+          <v-btn v-show="selectedItem.info.register == 0" style="width:100% height:60px" large  disabled>ลงทะเบียน</v-btn>
         </v-flex>
 
       </v-layout>
