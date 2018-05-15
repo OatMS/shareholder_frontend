@@ -53,7 +53,7 @@
       <span> <h3>oat.ms@thaimail.com</h3></span>
       <!-- <v-btn fab dark small color="indigo"> -->
         <!-- <v-icon lass="material-icons" dark>account_circle</v-icon> -->
-        <v-icon class="person-icon" large dark>account_circle</v-icon>
+        <v-icon class="person-icon" @click="logout()" large dark>account_circle</v-icon>
       <!-- </v-btn> -->
     </v-toolbar>
 
@@ -106,13 +106,20 @@ export default {
       ]
     }
   },
-  props: {
-    source: String
-  },
   methods: {
+    logout () {
+      console.log('logout')
+      window.location = '/login'
+      // this.$cookies.remove('information', '/', process.env.DOMAIN)
+      this.$cookies.remove('username_shareholder')
+      console.log(this.$cookies.isKey('username_shareholder'))
+    },
     toPage (url) {
       this.$router.push(url)
     }
+  },
+  props: {
+    source: String
   }
 }
 </script>
