@@ -7,6 +7,7 @@ import AgendaList from '@/components/contents/AgendaList'
 import ManageMeeting from '@/components/contents/ManageMeeting'
 import QRScaner from '@/components/QRScaner'
 import Selection from '@/components/Selection'
+import Presentation from '@/components/Presentation'
 
 Vue.use(Router)
 
@@ -17,6 +18,7 @@ const router = new Router({
     { path: '/manageAgenda', component: ManageAgenda, meta: { requiresAuth: true } },
     { path: '/qrscaner', component: QRScaner },
     { path: '/selection', component: Selection },
+    { path: '/presentation', component: Presentation },
     { path: '/',
       component: ManageAgenda,
       meta: { requiresAuth: true },
