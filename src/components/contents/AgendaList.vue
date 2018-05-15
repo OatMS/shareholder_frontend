@@ -268,10 +268,8 @@ export default {
         showLoaderOnConfirm: true,
         reverseButtons: true
       }).then((result) => {
-        if (result.value) {
-          this.$swal('Cancelled', 'Your file is still intact', 'info')
-        } else {
-          this.$swal('Deleted', 'You successfully', 'success') && this.desserts.splice(index, 1)
+        if (!result.value) {
+          this.$swal('ข้อมูลถูกลบ', 'คุณได้ลบข้อมูลวาระสำเร็จแล้ว', 'success') && this.desserts.splice(index, 1)
         }
       })
     },
