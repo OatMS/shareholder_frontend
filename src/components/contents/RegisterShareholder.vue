@@ -175,6 +175,16 @@ export default {
     }
   },
   methods: {
+    queryShareholder () {
+      this.axios.get('http://203.154.58.87:5000' + '/getAllShareholder/2/2018').then((response) => {
+        // var result = JSON.parse(response.data)
+        var result = response.data
+        if (response.status === 200) {
+          this.shareholder = result
+          console.log(result)
+        }
+      })
+    },
     register (registerBy) {
       var data = {}
       if (registerBy === 'proxy') {
@@ -193,6 +203,38 @@ export default {
             'registerby': 'manassanan.bo' }
         }
       } else {
+        const swalWithBootstrapButtons = this.$swal.mixin({
+          confirmButtonClass: 'btn btn-success',
+          cancelButtonClass: 'btn btn-danger',
+          buttonsStyling: false
+        })
+
+        swalWithBootstrapButtons({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          type: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Yes, delete it!',
+          cancelButtonText: 'No, cancel!',
+          reverseButtons: true
+        }).then((result) => {
+          if (result.value) {
+            swalWithBootstrapButtons(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            )
+          } else if (
+            // Read more about handling dismissals
+            result.dismiss === this.$swal.DismissReason.cancel
+          ) {
+            swalWithBootstrapButtons(
+              'Cancelled',
+              'Your imaginary file is safe :)',
+              'error'
+            )
+          }
+        })
         data = {
           'registertype': registerBy,
           'memberid': this.selectedItem.info.memberid,
@@ -207,7 +249,8 @@ export default {
             this.clearProxyDialog()
             console.log(result)
             this.selectedItem.info.register = result.info
-            this.shareholder[result.info.id - 1].info = result.info
+            // this.shareholder[result.info.id - 1].info = result.info
+            this.queryShareholder()
             // --- register success -----
           }
         }
@@ -224,40 +267,16 @@ export default {
     }
   },
   mounted () {
-    this.axios.get('http://203.154.58.87:5000' + '/getAllShareholder/2/2018').then((response) => {
-      // var result = JSON.parse(response.data)
-      var result = response.data
-      if (response.status === 200) {
-        this.shareholder = result
-        console.log(result)
-      }
-    })
-    // this.shareholder = [{ 'text': 'มนัสนันท์ บุญนวสิน อินเตอร์เน็ตประเทศไทย จำกัดมหาชน(INET)' }, { 'text': 'สมชาย นามสมมติ ลูกไก่น้อย' }]
+    this.queryShareholder()
   },
   computed: {
-    // form () {
-    //   return {
-    //     title: this.proxyTitle,
-    //     name: this.proxyName,
-    //     lastname: this.proxyLastname
-    //   }
-    // }
+
   },
   watch: {
     selectedItem () {
       this.showInfo = true
       console.log(this.selectedItem)
     }
-    // searchShareholder () {
-    //   this.axios.post('203.154.58.87:5000' + '/searchShareholder', { 'str': this.searchText }).then((response) => {
-    //     var result = JSON.parse(response.data)
-    //     if (response.status === 200) {
-    //       if (result.length > 0) {
-    //         this.profileImg = result[0]['profile_image']
-    //       }
-    //     }
-    //   })
-    // }
   }
 
 }

@@ -72,10 +72,10 @@
 <script type="text/javascript">
 export default {
   mounted () {
-    $('.btn').click(function (e) {
+    this.$('.btn').click(function (e) {
       e.preventDefault()
-      $('.btn').removeClass('active')
-      $(this).addClass('active')
+      this.$('.btn').removeClass('active')
+      this.$(this).addClass('active')
     })
   }
   // methods: {

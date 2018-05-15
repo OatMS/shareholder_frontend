@@ -6,6 +6,7 @@ import RegisterShareholder from '@/components/contents/RegisterShareholder'
 import AgendaList from '@/components/contents/AgendaList'
 import ManageMeeting from '@/components/contents/ManageMeeting'
 import QRScaner from '@/components/QRScaner'
+import Selection from '@/components/Selection'
 
 Vue.use(Router)
 
@@ -15,6 +16,7 @@ const router = new Router({
     { path: '/login', component: Login },
     { path: '/manageAgenda', component: ManageAgenda },
     { path: '/qrscaner', component: QRScaner },
+    { path: '/selection', component: Selection },
     { path: '/',
       component: ManageAgenda,
       // meta: { requiresAuth: true },
