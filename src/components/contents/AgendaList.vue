@@ -33,7 +33,7 @@
                 @change="onFilePicked">
               </v-flex>
               <v-flex xs12 sm6>
-                <img :src="imageUrl" height="100">
+                <img :src="imageUrl" height="80">
               </v-flex>
               <v-flex xs12>
                 <h2>การนับคะแนน</h2>
@@ -262,8 +262,8 @@ export default {
         showCancelButton: true,
         cancelButtonText: 'ยกเลิก',
         confirmButtonText: 'ตกลง',
-        confirmButtonColor: 'red',
-        cancelButtonColor: 'green',
+        // confirmButtonColor: 'blue',
+        // cancelButtonColor: 'green',
         showCloseButton: true,
         showLoaderOnConfirm: true,
         reverseButtons: true

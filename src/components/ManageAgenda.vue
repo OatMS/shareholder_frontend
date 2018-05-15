@@ -48,7 +48,7 @@
         <span>INET Shareholder</span>
       </v-toolbar-title>
       <v-spacer> </v-spacer>
-        <v-btn fab dark small color="indigo">
+        <v-btn @click="logout()" fab dark small color="indigo">
           <v-icon dark>person</v-icon>
         </v-btn>
       <span> <h1>oat.ms@thaimail.com </h1></span>
@@ -101,6 +101,15 @@ export default {
           ]
         }
       ]
+    }
+  },
+  methods: {
+    logout () {
+      console.log('logout')
+      window.location = '/login'
+      // this.$cookies.remove('information', '/', process.env.DOMAIN)
+      this.$cookies.remove('username_shareholder')
+      console.log(this.$cookies.isKey('username_shareholder'))
     }
   },
   props: {

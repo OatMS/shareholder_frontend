@@ -83,10 +83,13 @@ export default {
         }
         if (result.status === 'success') {
           window.location = '/manageAgenda'
+          // this.$cookies.set('information', Encode.encode(JSON.stringify(result.oneIdData[0])), null, '/', process.env.DOMAIN)
+          this.$cookies.set('username_shareholder', this.username)
         } else {
           this.isLoading = false
           this.$swal('', 'กรุณาตรวจสอบอีเมลและรหัสผ่านใหม่อีกครั้ง', 'error')
         }
+        // this.$cookies.remove('username_inet_register')
       })
     }
     // mounted () {
