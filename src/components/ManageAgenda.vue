@@ -78,7 +78,7 @@ export default {
       drawer: null,
       items: [
         { icon: 'assignment_ind', text: 'ลงทะเบียนผู้ถือหุ้น', link: '/' },
-        { icon: 'assignment_returned', text: 'หยุดเวลาแต่ละวาระ', link: '/agendaList' },
+        { icon: 'assignment_returned', text: 'คำนวณคะแนน', link: '/calculateScore' },
         { icon: 'gradient', text: 'สแกนบัตรลงคะแนน', link: '/agendaList' },
         // {
         //   icon: 'keyboard_arrow_up',
