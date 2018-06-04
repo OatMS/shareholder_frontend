@@ -5,6 +5,7 @@ import ManageAgenda from '@/components/ManageAgenda'
 import RegisterShareholder from '@/components/contents/RegisterShareholder'
 import AgendaList from '@/components/contents/AgendaList'
 import ManageMeeting from '@/components/contents/ManageMeeting'
+import CalculateScore from '@/components/contents/CalculateScore'
 import QRScaner from '@/components/QRScaner'
 import Selection from '@/components/Selection'
 import Presentation from '@/components/Presentation'
@@ -25,7 +26,8 @@ const router = new Router({
       children: [
         { path: '/', component: RegisterShareholder },
         { path: '/agendaList', component: AgendaList },
-        { path: '/manageMeeting', component: ManageMeeting }
+        { path: '/manageMeeting', component: ManageMeeting },
+        { path: '/calculateScore', component: CalculateScore }
         // { path: '/register/:id', component: register },
         // { path: '/all', component: all },
         // { path: '/newaccount', component: newaccount },
