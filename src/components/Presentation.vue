@@ -52,6 +52,7 @@ export default {
   opacity:1;
   background-color:black;
   cursor:pointer;
-  background: rgb(255, 0, 0) ; opacity: 0.5
+  background: rgb(255, 0, 0) ;
+  opacity: 0.5;
 }
 </style>

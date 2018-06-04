@@ -107,13 +107,11 @@ export default {
 
 <style lang="css">
 #app {
-  background-image: url('/static/img/icons/100.jpg');
+  background-image: url('/static/img/icons/104.jpg');
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
-.loginLogo{
-  width: 13%
-}
+
 </style>
