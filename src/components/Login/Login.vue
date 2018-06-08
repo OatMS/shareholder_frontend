@@ -5,21 +5,22 @@
         <v-container fluid fill-height>
           <v-layout align-center justify-center>
             <v-flex xs12 sm8 md4>
-              <v-card class="elevation-12">
+              <v-card class="elevation-24">
                 <v-toolbar dark color="green">
                   <v-toolbar-title>INET Shareholder Meeting</v-toolbar-title>
                 </v-toolbar>
                 <v-card-text>
                   <v-form >
-                    <v-text-field @keyup.enter="login()" autocapitalize="off" prepend-icon="person" color="amber accent-4" name="login" label="Username" v-model="username" type="text" autocomplete="off"></v-text-field>
-                    <v-text-field @keyup.enter="login()" prepend-icon="lock" color="amber accent-4" name="password" label="Password" id="password" v-model="password" type="password"></v-text-field>
+                    <v-text-field @keyup.enter="login()" autocapitalize="off" prepend-icon="person" color="amber accent-4" name="login" label="ชื่อผู้ใช้งาน" v-model="username" type="text" autocomplete="off"></v-text-field>
+                    <v-text-field @keyup.enter="login()" prepend-icon="lock" color="amber accent-4" name="password" label="รหัสผ่าน" id="password" v-model="password" type="password"></v-text-field>
                   </v-form>
                 </v-card-text>
                 <v-card-actions>
                   <v-spacer></v-spacer>
                   <v-btn depressed class="widthfull" color="success" @click.native="login">
-                    <v-icon>lock_open</v-icon>Login
+                    <v-icon class="pr-2">lock</v-icon>เข้าสู่ระบบ
                   </v-btn>
+                  <v-snackbar :top="y === 'top'" v-model="snackbar"> {{ text }}</v-snackbar>
                 </v-card-actions>
                 <v-footer  class="pa-3">
                   <v-flex xs12 py-3 text-xs-center black--text>
@@ -41,7 +42,13 @@ export default {
     return {
       username: '',
       password: '',
-      isLoading: false
+      isLoading: false,
+      snackbar: false,
+      y: 'top',
+      x: null,
+      mode: '',
+      timeout: 6000,
+      text: 'test'
     }
   },
 
@@ -74,6 +81,7 @@ export default {
         this.$swal('กรุณากรอก Password', '', 'warning')
         return
       }
+      this.snackbar = true
       this.Loading = false
 
       this.axios.post('http://203.154.58.87:5000' + '/login', data).then((response) => {

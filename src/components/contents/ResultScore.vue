@@ -1,15 +1,22 @@
 <template lang="html">
   <div>
-    <h1 style="text-align:center; font-size:2.3em; " class="mt-4">ผลคะแนนวาระการประชุมครั้งที่ 2 ปี 2018</h1>
+    <h1 style="text-align:center; font-size:2.3em; " class="mt-4">ผลคะแนนของวาระการประชุมครั้งที่ 2 ปี 2018</h1>
     <v-dialog v-model="dialog" max-width="500px">
       <!-- <v-btn slot="activator" color="primary" dark class="mb-3">เพิ่มวาระ</v-btn> -->
-
     </v-dialog>
+      <v-menu class="pt-2 mb-3">
+      <v-btn slot="activator" color="primary" dark>Select Year</v-btn>
+      <v-list>
+        <v-list-tile v-for="(item, index) in items" :key="index" @click="">
+        <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+        </v-list-tile>
+      </v-list>
+    </v-menu>
     <v-data-table
     :headers="headers"
     :items="desserts"
     hide-actions
-    class="elevation-1"
+    class="elevation-12 "
     >
     <template slot="items" slot-scope="props">
       <!-- <v-layout wrap>
@@ -27,12 +34,12 @@
       </v-layout> -->
       <td>{{ props.item.name }}</td>
       <td class="text-xs-left">{{ props.item.agendaname }}</td>
-      <td class="justify-right layout px-0">
+      <!-- <td class="justify-right layout px-0">
         <v-btn small round color="primary" dark>คำนวณคะแนน</v-btn>
-      </td>
-      <!-- <td class="text-xs-right">{{ props.item.shortname }}</td>
-      <td class="text-xs-right">{{ props.item.carbs }}</td>
-      <td class="text-xs-right">{{ props.item.protein }}</td> -->
+      </td> -->
+      <td class="text-xs-center">{{ props.item.agree }}</td>
+      <td class="text-xs-center">{{ props.item.disagree }}</td>
+      <td class="text-xs-center">{{ props.item.discard }}</td>
 
     </template>
     <template slot="no-data">
@@ -48,6 +55,19 @@ export default {
     imageUrl: '',
     image: null,
     dialog: false,
+    items: [
+      { title: '2561' },
+      { title: '2560' },
+      { title: '2559' },
+      { title: '2558' },
+      { title: '2557' },
+      { title: '2556' },
+      { title: '2555' },
+      { title: '2554' },
+      { title: '2553' },
+      { title: '2552' },
+      { title: '2551' }
+    ],
     headers: [
       {
         text: 'วาระที่',
@@ -56,10 +76,10 @@ export default {
         value: 'name'
       },
       { text: 'ชื่อวาระ', value: 'agendaname', sortable: false },
-      // { text: 'shortname (g)', value: 'shortname', sortable: false },
-      // { text: 'Carbs (g)', value: 'carbs', sortable: false },
+      { text: 'เห็นด้วย (เสียง)', value: 'agree', sortable: true },
+      { text: 'ไม่เห็นด้วย (เสียง)', value: 'disagree', sortable: true },
       // { text: 'Protein (g)', value: 'protein', sortable: false },
-      { text: 'Actions', value: 'name', sortable: false }
+      { text: 'งดออกเสียง (เสียง)', value: 'discard', sortable: true }
     ],
     desserts: [],
     editedIndex: -1,
@@ -67,17 +87,17 @@ export default {
       name: '',
       subname: '',
       agendaname: '',
-      shortname: '',
-      carbs: '',
-      protein: ''
+      agree: '',
+      disagree: '',
+      discard: ''
     },
     defaultItem: {
       name: '',
       subname: '',
       agendaname: '',
-      shortname: '',
-      carbs: '',
-      protein: ''
+      agree: '',
+      disagree: '',
+      discard: ''
     }
   }),
   computed: {
@@ -100,113 +120,113 @@ export default {
           name: '1',
           subname: '',
           agendaname: 'เรื่องประธานแจ้งเพื่อทราบ (ถ้ามี)',
-          shortname: '',
-          carbs: 24,
-          protein: 4.0
+          agree: 111,
+          disagree: 24,
+          discard: 4.0
         },
         {
           name: '2',
           subname: '',
           agendaname: 'พิจารณารับรองรายงานการประชุมสามัญผู้ถือหุ้นประจำปี 2560 ซึ่งประชุมเมื่อวันที่ 21 เมษายน 2560 (รายละเอียดตามสิ่งที่ส่งมาด้วยลำดับที่ 1)',
-          shortname: '',
-          carbs: 37,
-          protein: 4.3
+          agree: 112,
+          disagree: 37,
+          discard: 4.3
         },
         {
           name: '3',
           subname: '',
           agendaname: 'รับทราบรายงานคณะกรรมการบริษัทเกี่ยวกับผลการดำเนินงานประจำปี 2560 (รายละเอียดตามสิ่งที่ส่งมาด้วยลำดับที่ 2)',
-          shortname: '',
-          carbs: 23,
-          protein: 6.0
+          agree: 113,
+          disagree: 23,
+          discard: 6.0
         },
         {
           name: '4',
           subname: '',
           agendaname: 'พิจารณาอนุมัติงบการเงินประจำปีสิ้นสุด ณ วันที่ 31 ธันวาคม 2560 ซึ่งผ่านการตรวจสอบจากผู้สอบบัญชี (รายละเอียดตามสิ่งที่ส่งมาด้วยลำดับที่ 2)',
-          shortname: '',
-          carbs: 67,
-          protein: 4.3
+          agree: 114,
+          disagree: 67,
+          discard: 4.3
         },
         {
           name: '5',
           subname: '',
           agendaname: 'พิจารณาจัดสรรกำไรสุทธิเป็นทุนสำรองตามกฎหมายและการจ่ายเงินปันผลสำหรับผลประกอบการประจำปี 2560',
-          shortname: '',
-          carbs: 49,
-          protein: 3.9
+          agree: 115,
+          disagree: 49,
+          discard: 3.9
         },
         {
           name: '6',
           subname: '',
           agendaname: 'พิจารณาเลือกตั้งกรรมการแทนกรรมการที่ออกตามวาระประจำปี 2561 (ประวัติโดยสังเขปของบุคคลที่ได้รับการเสนอชื่อเพิ่มพิจารณาเลือกตั้งเป็นกรรมการแทนกรรมการที่ออกตามวาระตามสิ่งที่ส่งมาด้วยลำดับที่ 3)',
-          shortname: '',
-          carbs: 94,
-          protein: 0.0
+          agree: 116,
+          disagree: 94,
+          discard: 0.0
         },
         {
           name: '6.1',
           subname: '',
           agendaname: 'พิจารณาเลือกตั้งกรรมการแทนกรรมการที่ออกตามวาระประจำปี 2561 (ประวัติโดยสังเขปของบุคคลที่ได้รับการเสนอชื่อเพิ่มพิจารณาเลือกตั้งเป็นกรรมการแทนกรรมการที่ออกตามวาระตามสิ่งที่ส่งมาด้วยลำดับที่ 3) นายอนิรุทธ์ หิรัญรักษ์',
-          shortname: '',
-          carbs: 98,
-          protein: 0
+          agree: 117,
+          disagree: 98,
+          discard: 0
         },
         {
           name: '6.2',
           subname: '',
           agendaname: 'พิจารณาเลือกตั้งกรรมการแทนกรรมการที่ออกตามวาระประจำปี 2561 (ประวัติโดยสังเขปของบุคคลที่ได้รับการเสนอชื่อเพิ่มพิจารณาเลือกตั้งเป็นกรรมการแทนกรรมการที่ออกตามวาระตามสิ่งที่ส่งมาด้วยลำดับที่ 3) นางมรกต กุลธรรมโยธิน',
-          shortname: '',
-          carbs: 87,
-          protein: 6.5
+          agree: 118,
+          disagree: 87,
+          discard: 6.5
         },
         {
           name: '6.3',
           subname: '',
           agendaname: 'พิจารณาเลือกตั้งกรรมการแทนกรรมการที่ออกตามวาระประจำปี 2561 (ประวัติโดยสังเขปของบุคคลที่ได้รับการเสนอชื่อเพิ่มพิจารณาเลือกตั้งเป็นกรรมการแทนกรรมการที่ออกตามวาระตามสิ่งที่ส่งมาด้วยลำดับที่ 3) นายมรกต เธียรมนตรี',
-          shortname: '',
-          carbs: 51,
-          protein: 4.9
+          agree: 119,
+          disagree: 51,
+          discard: 4.9
         },
         {
           name: '6.4',
           subname: '',
           agendaname: 'พิจารณาเลือกตั้งกรรมการแทนกรรมการที่ออกตามวาระประจำปี 2561 (ประวัติโดยสังเขปของบุคคลที่ได้รับการเสนอชื่อเพิ่มพิจารณาเลือกตั้งเป็นกรรมการแทนกรรมการที่ออกตามวาระตามสิ่งที่ส่งมาด้วยลำดับที่ 3) นางสาวนฤมล วังศธรธนคุณ',
-          shortname: '',
-          carbs: 65,
-          protein: 7
+          agree: 120,
+          disagree: 65,
+          discard: 7
         },
         {
           name: '7',
           subname: '',
           agendaname: 'พิจารณาอนุมัติการกำหนดค่าตอบแทนกรรมการ',
-          shortname: '',
-          carbs: 51,
-          protein: 4.9
+          agree: 125,
+          disagree: 51,
+          discard: 4.9
         },
         {
           name: '8',
           subname: '',
           agendaname: 'พิจารณาแต่งตั้งผู้สอบบัญชีและกำหนดค่าสอบบัญชีประจำปี 2561 (รายละเอียดตามสิ่งที่ส่งมาด้วยลำดับที่ 6)',
-          shortname: '',
-          carbs: 51,
-          protein: 4.9
+          agree: 121,
+          disagree: 51,
+          discard: 4.9
         },
         {
           name: '9',
           subname: '',
           agendaname: 'พิจารณาอนุมัติการแก้ไขข้อบังคับ บริษัท อินเทอร์เน็ตประเทศไทย จำกัด(มหาชน) ข้อ 16 (รายละเอียดตามสิ่งที่ส่งมาด้วยลำดับที่ 7)',
-          shortname: '',
-          carbs: 51,
-          protein: 4.9
+          agree: 123,
+          disagree: 51,
+          discard: 4.9
         },
         {
           name: '10',
           subname: '',
           agendaname: 'พิจารณาเรื่องอื่นๆ (ถ้ามี)',
-          shortname: '',
-          carbs: 51,
-          protein: 4.9
+          agree: 124,
+          disagree: 51,
+          discard: 4.9
         }
       ]
     },

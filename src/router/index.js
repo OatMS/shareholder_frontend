@@ -9,6 +9,7 @@ import CalculateScore from '@/components/contents/CalculateScore'
 import QRScaner from '@/components/QRScaner'
 import Selection from '@/components/Selection'
 import Presentation from '@/components/Presentation'
+import ResultScore from '@/components/contents/ResultScore'
 
 Vue.use(Router)
 
@@ -19,7 +20,7 @@ const router = new Router({
     { path: '/manageAgenda', component: ManageAgenda, meta: { requiresAuth: true } },
     { path: '/qrscaner', component: QRScaner },
     { path: '/selection', component: Selection },
-    { path: '/presentation', component: Presentation },
+    { path: '/presentation', component: Presentation, meta: { requiresAuth: true } },
     { path: '/',
       component: ManageAgenda,
       meta: { requiresAuth: true },
@@ -27,7 +28,8 @@ const router = new Router({
         { path: '/', component: RegisterShareholder },
         { path: '/agendaList', component: AgendaList },
         { path: '/manageMeeting', component: ManageMeeting },
-        { path: '/calculateScore', component: CalculateScore }
+        { path: '/calculateScore', component: CalculateScore },
+        { path: '/resultscore', component: ResultScore }
         // { path: '/register/:id', component: register },
         // { path: '/all', component: all },
         // { path: '/newaccount', component: newaccount },

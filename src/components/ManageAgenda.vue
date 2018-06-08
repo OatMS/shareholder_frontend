@@ -51,10 +51,14 @@
       <v-spacer> </v-spacer>
 
       <span> <h3>oat.ms@thaimail.com</h3></span>
-      <!-- <v-btn fab dark small color="indigo"> -->
+      <v-tooltip bottom>
+      <v-btn fab dark small slot="activator" color="indigo" @click="logout()">
+        <v-icon>lock_open</v-icon>
         <!-- <v-icon lass="material-icons" dark>account_circle</v-icon> -->
-        <v-icon class="person-icon" @click="logout()" large dark>account_circle</v-icon>
-      <!-- </v-btn> -->
+        <!-- <v-icon class="person-icon" @click="logout()" large dark>account_circle</v-icon> -->
+      </v-btn>
+      <span>ลงชื่อออก</span>
+      </v-tooltip>
     </v-toolbar>
 
     <v-content>
@@ -89,9 +93,9 @@ export default {
         //     { icon: 'add', text: 'Create label' }
         //   ]
         // },
-        { icon: 'slideshow', text: 'Presentation', link: '/agendaList' },
+        { icon: 'slideshow', text: 'Presentation', link: '/presentation' },
         // { icon: 'help', text: 'Help' },
-        { icon: 'insert_drive_file', text: 'สรุปผลคะแนนย้อนหลัง', link: '/agendaList' },
+        { icon: 'insert_drive_file', text: 'สรุปผลคะแนนย้อนหลัง', link: '/resultscore' },
         {
           icon: 'keyboard_arrow_up',
           'icon-alt': 'keyboard_arrow_down',
