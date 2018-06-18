@@ -4,14 +4,16 @@
     <v-dialog v-model="dialog" max-width="500px">
       <!-- <v-btn slot="activator" color="primary" dark class="mb-3">เพิ่มวาระ</v-btn> -->
     </v-dialog>
-      <v-menu class="pt-2 mb-3">
-      <v-btn slot="activator" color="primary" dark>Select Year</v-btn>
-      <v-list>
-        <v-list-tile v-for="(item, index) in items" :key="index" @click="">
-        <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-        </v-list-tile>
-      </v-list>
-    </v-menu>
+        <v-flex class="ml-4" xs2>
+          <v-select
+            :items="dropdown_font"
+            v-model="selectedItem"
+            item-value="dropdown_font.info"
+            overflow
+            label="Select"
+          ></v-select>
+        </v-flex>
+
     <v-data-table
     :headers="headers"
     :items="desserts"
@@ -53,21 +55,11 @@
 export default {
   data: () => ({
     imageUrl: '',
+    selectedItem: {},
+    showInfo: false,
     image: null,
     dialog: false,
-    items: [
-      { title: '2561' },
-      { title: '2560' },
-      { title: '2559' },
-      { title: '2558' },
-      { title: '2557' },
-      { title: '2556' },
-      { title: '2555' },
-      { title: '2554' },
-      { title: '2553' },
-      { title: '2552' },
-      { title: '2551' }
-    ],
+    dropdown_font: [],
     headers: [
       {
         text: 'วาระที่',
@@ -108,6 +100,10 @@ export default {
   watch: {
     dialog (val) {
       val || this.close()
+    },
+    selectedItem () {
+      this.showInfo = true
+      console.log(this.selectedItem)
     }
   },
   created () {
@@ -288,6 +284,16 @@ export default {
       fileReader.readAsDataURL(files[0])
       this.image = files[0]
     }
+  },
+  mounted () {
+    this.axios.post('http://127.0.0.1:5000' + '/getYear').then((response) => {
+      // var result = JSON.parse(response.data)
+      var result = response.data
+      if (response.status === 200) {
+        this.dropdown_font = result
+        console.log(result)
+      }
+    })
   }
 }
 </script>

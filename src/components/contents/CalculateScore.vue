@@ -1,9 +1,36 @@
 <template lang="html">
   <div>
     <h1 style="text-align:center; font-size:2.3em; " class="mt-4">ผลคะแนนวาระการประชุมครั้งที่ 2 ปี 2018</h1>
-    <v-dialog v-model="dialog" max-width="500px">
+    <v-dialog v-model="dialog" max-width="300px">
       <!-- <v-btn slot="activator" color="primary" dark class="mb-3">เพิ่มวาระ</v-btn> -->
-
+      <v-card>
+        <v-card-title>
+          <span class="headline">บันทึกคะแนน</span>
+        </v-card-title>
+      <v-card-text>
+        <v-container grid-list-md>
+          <v-layout wrap>
+            <v-flex xs12>
+              <v-text-field label="เห็นด้วย" placeholder="271728752"></v-text-field>
+            </v-flex>
+            <v-flex xs12>
+              <v-text-field label="ไม่เห็นด้วย" placeholder="40000"></v-text-field>
+            </v-flex>
+            <v-flex xs12>
+              <v-text-field label="งดออกเสียง" placeholder="375000"></v-text-field>
+            </v-flex>
+            <v-flex xs12>
+              <v-text-field label="บัตรเสีย"></v-text-field>
+            </v-flex>
+          </v-layout>
+        </v-container>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="blue darken-1" flat @click.native="close">Cancel</v-btn>
+          <v-btn color="blue darken-1" flat @click.native="save">Update</v-btn>
+        </v-card-actions>
+      </v-card>
     </v-dialog>
     <v-data-table
     :headers="headers"
@@ -28,7 +55,7 @@
       <td>{{ props.item.name }}</td>
       <td class="text-xs-left">{{ props.item.agendaname }}</td>
       <td class="justify-right layout px-0">
-        <v-btn small round color="primary" dark>คำนวณคะแนน</v-btn>
+        <v-btn small round color="primary" @click="editItem(props.item)" dark>คำนวณคะแนน</v-btn>
       </td>
       <!-- <td class="text-xs-right">{{ props.item.shortname }}</td>
       <td class="text-xs-right">{{ props.item.carbs }}</td>
