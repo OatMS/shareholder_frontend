@@ -83,7 +83,7 @@ export default {
       items: [
         { icon: 'assignment_ind', text: 'ลงทะเบียนผู้ถือหุ้น', link: '/' },
         { icon: 'assignment_returned', text: 'คำนวณคะแนน', link: '/calculateScore' },
-        { icon: 'gradient', text: 'สแกนบัตรลงคะแนน', link: '/agendaList' },
+        { icon: 'gradient', text: 'สแกนบัตรลงคะแนน', link: '/QRScaner' },
         // {
         //   icon: 'keyboard_arrow_up',
         //   'icon-alt': 'keyboard_arrow_down',

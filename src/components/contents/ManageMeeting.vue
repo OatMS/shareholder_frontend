@@ -1,6 +1,6 @@
 <template lang="html">
   <div>
-    <h1 style="text-align:center; font-size:2.3em; " class="mt-4">ข้อมูลการประชุมครั้งที่ 2 ปี 2018</h1>
+    <h1 style="text-align:center; font-size:2.3em; " class="mb-4 mt-4">ข้อมูลการประชุมครั้งที่ 2 ปี 2018</h1>
     <v-dialog v-model="dialog" max-width="500px">
       <!-- <v-btn slot="activator" color="primary" dark class="mb-3">เพิ่มวาระ</v-btn> -->
     </v-dialog>
