@@ -10,6 +10,7 @@ import QRScaner from '@/components/QRScaner'
 import Selection from '@/components/Selection'
 import Presentation from '@/components/Presentation'
 import ResultScore from '@/components/contents/ResultScore'
+import Template from '@/components/Template'
 
 Vue.use(Router)
 
@@ -21,6 +22,7 @@ const router = new Router({
     { path: '/qrscaner', component: QRScaner },
     { path: '/selection', component: Selection },
     { path: '/presentation', component: Presentation, meta: { requiresAuth: true } },
+    { path: '/template', component: Template },
     { path: '/',
       component: ManageAgenda,
       meta: { requiresAuth: true },

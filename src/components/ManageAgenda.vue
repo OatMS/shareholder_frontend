@@ -69,7 +69,6 @@
         &copy; {{ new Date().getFullYear() }} Internet Thailand Public Company Limited
       </v-flex>
     </v-footer>
-
   </v-app>
 </template>
 
@@ -103,8 +102,8 @@ export default {
           model: false,
           children: [
             { icon: 'slideshow', text: 'จัดการข้อมูลการประชุม', link: '/manageMeeting' },
-            { icon: 'slideshow', text: 'จัดการข้อมูลวาระ', link: '/agendaList' },
-            { icon: 'slideshow', text: 'จัดการวาระการประชุม', link: '/agendaList' }
+            { icon: 'slideshow', text: 'จัดการข้อมูลวาระ', link: '/agendaList' }
+            // { icon: 'slideshow', text: 'จัดการวาระการประชุม', link: '/agendaList' }
           ]
         }
       ]
