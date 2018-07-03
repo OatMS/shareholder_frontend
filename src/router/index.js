@@ -13,6 +13,10 @@ import ResultScore from '@/components/contents/ResultScore'
 import Shareholdertemplate from '@/components/Pdf/Shareholdertemplate'
 import Proxytemplate from '@/components/Pdf/Proxytemplate'
 import Scanqrcode from '@/components/Mobile/Scanqrcode'
+import Submitqrcode from '@/components/Mobile/Submitqrcode'
+import test1 from '@/components/Mobile/test1'
+import test2 from '@/components/Mobile/test2'
+import test3 from '@/components/Mobile/test3'
 
 Vue.use(Router)
 
@@ -27,6 +31,10 @@ const router = new Router({
     { path: '/shareholdertemplate', component: Shareholdertemplate },
     { path: '/proxytemplate', component: Proxytemplate },
     { path: '/qrcode/shareholderid/', component: Scanqrcode },
+    { path: '/qrcode/shareholderid/submit', component: Submitqrcode },
+    { path: '/qrcode/shareholderid/test1', component: test1 },
+    { path: '/qrcode/shareholderid/test2', component: test2 },
+    { path: '/qrcode/shareholderid/test3', component: test3 },
     { path: '/',
       component: ManageAgenda,
       meta: { requiresAuth: true },
