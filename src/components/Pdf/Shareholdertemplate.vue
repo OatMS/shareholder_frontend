@@ -568,7 +568,7 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="css" scoped>
 page[size="A4"] {
   background: white;
   width: 21cm;

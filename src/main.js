@@ -9,11 +9,14 @@ import VueSweetAlert from 'vue-sweetalert'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueCookies from 'vue-cookies'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.css'
 
 Vue.use(Vuetify)
 Vue.use(VueSweetAlert)
 Vue.use(VueAxios, axios)
 Vue.use(VueCookies)
+Vue.use(VueAwesomeSwiper)
 
 window.$ = window.jQuery = require('jquery')
 

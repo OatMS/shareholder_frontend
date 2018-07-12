@@ -17,6 +17,7 @@ import Submitqrcode from '@/components/Mobile/Submitqrcode'
 import test1 from '@/components/Mobile/test1'
 import test2 from '@/components/Mobile/test2'
 import test3 from '@/components/Mobile/test3'
+import TestPresent from '@/components/Pdf/TestPresent'
 
 Vue.use(Router)
 
@@ -35,6 +36,7 @@ const router = new Router({
     { path: '/qrcode/shareholderid/test1', component: test1 },
     { path: '/qrcode/shareholderid/test2', component: test2 },
     { path: '/qrcode/shareholderid/test3', component: test3 },
+    { path: '/testpresent', component: TestPresent },
     { path: '/',
       component: ManageAgenda,
       meta: { requiresAuth: true },
