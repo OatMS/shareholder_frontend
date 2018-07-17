@@ -18,9 +18,9 @@
       </v-layout>
     </div>
     <div v-if="i==1">
-      <v-content class="centerDiv">
+      <v-content style="padding: 0px; margin: 0px auto; width: 75%; height: 100%;">
         <section>
-          <v-layout row wrap class="white--text border">
+          <v-layout row wrap class="border" style="margin:200px 0px;">
 
             <v-flex xs12>
               <v-flex xs12>
@@ -79,9 +79,9 @@
 </v-content>
 </div>
 <div v-if="i==2">
-  <v-content class="centerDiv">
+  <v-content style="padding: 0px; margin: 0px auto; width: 75%; height: 100%;">
     <section>
-      <v-layout row wrap class="border">
+      <v-layout row wrap class="border" style="margin:300px 0px;">
         <v-flex xs12>
           <v-flex xs12>
             <h2 class="black--text text-xs-center mb-5">วาระที่ {{ agendaVote[0].agenda }} {{ agendaVote[0].title }}</h2>
@@ -148,9 +148,9 @@
 </v-content>
 </div>
 <div v-if="i==3">
-  <v-content class="centerDiv">
+  <v-content style="padding: 0px; margin: 0px auto; width: 75%; height: 100%;">
     <section>
-      <v-layout row wrap class="border">
+      <v-layout row wrap class="border" style="margin:300px 0px;">
         <v-flex xs12>
           <v-flex xs12>
             <h2 class="black--text text-xs-center mb-5">วาระที่ {{ agendaVote[1].agenda }} {{ agendaVote[1].title }}</h2>
@@ -238,9 +238,9 @@
   </v-content>
 </div>
 <div v-if="i==4">
-  <v-content class="centerDiv">
+  <v-content style="padding: 0px; margin: 0px auto; width: 75%; height: 100%;">
     <section>
-      <v-layout row wrap class="border">
+      <v-layout row wrap class="border" style="margin:300px 0px;">
         <v-flex xs12>
         <v-flex xs12>
           <h2 class="black--text text-xs-center mb-5">วาระที่ {{ agendaVote[2].agenda }} {{ agendaVote[2].title }}</h2>
@@ -327,14 +327,14 @@
   </v-content>
 </div>
 <div v-if="i==5">
-  <v-content class="centerDiv">
+  <v-content style="padding: 0px; margin: 0px auto; width: 75%; height: 100%;">
     <section>
-      <v-layout row wrap class="border">
+      <v-layout row wrap class="border" style="margin:150px 0px;">
         <v-flex xs12>
         <v-flex xs12>
           <h2 class="black--text text-xs-center mb-5">วาระที่ {{ agendaVote[3].agenda }}.{{ agendaVote[3].subAgenda }} {{ agendaVote[3].title }}</h2>
         </v-flex>
-        <img style="display: block; margin: 0 auto;" src="/static/img/icons/201.jpg" height="250" class="mb-5">
+        <img style="display: block; margin: 0 auto;" v-bind:src="'/static/img/icons/' + agendaVote[3].imagePath" height="250" class="mb-5">
         <!-- <v-flex class="mb-4" md4>
           <span class="mr-5 black--text">เห็นด้วย</span>
         </v-flex>
@@ -416,14 +416,14 @@
   </v-content>
 </div>
 <div v-if="i==6">
-  <v-content class="centerDiv">
+  <v-content style="padding: 0px; margin: 0px auto; width: 75%; height: 100%;">
     <section>
-      <v-layout row wrap class="border">
+      <v-layout row wrap class="border" style="margin:150px 0px;">
         <v-flex xs12>
         <v-flex xs12>
           <h2 class="black--text text-xs-center mb-5">วาระที่ {{ agendaVote[4].agenda }}.{{ agendaVote[4].subAgenda }} {{ agendaVote[4].title }}</h2>
         </v-flex>
-        <img style="display: block; margin: 0 auto;" src="/static/img/icons/202.jpg" height="250" class="mb-5">
+        <img style="display: block; margin: 0 auto;" v-bind:src="'/static/img/icons/' + agendaVote[4].imagePath" height="250" class="mb-5">
         <!-- <v-flex class="mb-4" md4>
           <span class="mr-5 black--text">เห็นด้วย</span>
         </v-flex>
@@ -505,14 +505,14 @@
   </v-content>
 </div>
 <div v-if="i==7">
-  <v-content class="centerDiv">
+  <v-content style="padding: 0px; margin: 0px auto; width: 75%; height: 100%;">
     <section>
-      <v-layout row wrap class="border">
+      <v-layout row wrap class="border" style="margin:150px 0px;">
         <v-flex xs12>
         <v-flex xs12>
           <h2 class="black--text text-xs-center mb-5">วาระที่ {{ agendaVote[5].agenda }}.{{ agendaVote[5].subAgenda }} {{ agendaVote[5].title }}</h2>
         </v-flex>
-        <img style="display: block; margin: 0 auto;" src="/static/img/icons/203.jpg" height="250" class="mb-5">
+        <img style="display: block; margin: 0 auto;" v-bind:src="'/static/img/icons/' + agendaVote[5].imagePath" height="250" class="mb-5">
         <!-- <v-flex class="mb-4" md4>
           <span class="mr-5 black--text">เห็นด้วย</span>
         </v-flex>
@@ -594,14 +594,14 @@
   </v-content>
 </div>
 <div v-if="i==8">
-  <v-content class="centerDiv">
+  <v-content style="padding: 0px; margin: 0px auto; width: 75%; height: 100%;">
     <section>
-      <v-layout row wrap class="border">
+      <v-layout row wrap class="border" style="margin:150px 0px;">
         <v-flex xs12>
         <v-flex xs12>
           <h2 class="black--text text-xs-center mb-5">วาระที่ {{ agendaVote[6].agenda }}.{{ agendaVote[6].subAgenda }} {{ agendaVote[6].title }}</h2>
         </v-flex>
-        <img style="display: block; margin: 0 auto;" src="/static/img/icons/204.jpg" height="250" class="mb-5">
+        <img style="display: block; margin: 0 auto;" v-bind:src="'/static/img/icons/' + agendaVote[6].imagePath" height="250" class="mb-5">
         <!-- <v-flex class="mb-4" md4>
           <span class="mr-5 black--text">เห็นด้วย</span>
         </v-flex>
@@ -683,9 +683,9 @@
   </v-content>
 </div>
 <div v-if="i==9">
-  <v-content class="centerDiv">
+  <v-content style="padding: 0px; margin: 0px auto; width: 75%; height: 100%;">
     <section>
-      <v-layout row wrap class="border">
+      <v-layout row wrap class="border" style="margin:300px 0px;">
         <v-flex xs12>
         <v-flex xs12>
           <h2 class="black--text text-xs-center mb-5">วาระที่ {{ agendaVote[7].agenda }} {{ agendaVote[7].title }}</h2>
@@ -771,9 +771,9 @@
   </v-content>
 </div>
 <div v-if="i==10">
-  <v-content class="centerDiv">
+  <v-content style="padding: 0px; margin: 0px auto; width: 75%; height: 100%;">
     <section>
-      <v-layout row wrap class="border">
+      <v-layout row wrap class="border" style="margin:300px 0px;">
         <v-flex xs12>
         <v-flex xs12>
           <h2 class="black--text text-xs-center mb-5">วาระที่ {{ agendaVote[8].agenda }} {{ agendaVote[8].title }}</h2>
@@ -860,9 +860,9 @@
   </v-content>
 </div>
 <div v-if="i==11">
-  <v-content class="centerDiv">
+  <v-content style="padding: 0px; margin: 0px auto; width: 75%; height: 100%;">
     <section>
-      <v-layout row wrap class="border">
+      <v-layout row wrap class="border" style="margin:300px 0px;">
         <v-flex xs12>
         <v-flex xs12>
           <h2 class="black--text text-xs-center mb-5">วาระที่ {{ agendaVote[9].agenda }} {{ agendaVote[9].title }}</h2>
@@ -1017,7 +1017,7 @@ export default {
           'noaccept': '32,100',
           'abstain': '105,000',
           'broke': '0',
-          'imagePath': '/static/img/icons/201.jpg'
+          'imagePath': '201.jpg'
         },
         {
           'agenda': 6,
@@ -1027,7 +1027,7 @@ export default {
           'noaccept': '40,017',
           'abstain': '105,000',
           'broke': '0',
-          'imagePath': '/static/img/icons/202.jpg'
+          'imagePath': '202.jpg'
         },
         {
           'agenda': 6,
@@ -1037,7 +1037,7 @@ export default {
           'noaccept': '32,000',
           'abstain': '105,000',
           'broke': '0',
-          'imagePath': '/static/img/icons/203.jpg'
+          'imagePath': '203.jpg'
         },
         {
           'agenda': 6,
@@ -1047,7 +1047,7 @@ export default {
           'noaccept': '40,000',
           'abstain': '80,517',
           'broke': '0',
-          'imagePath': '/static/img/icons/204.jpg'
+          'imagePath': '204.jpg'
         },
         {
           'agenda': 7,
@@ -1132,14 +1132,14 @@ export default {
   /* opacity: 0.9; */
   background: #ffffff;
 }
-.centerDiv{
+/* .centerDiv{
   margin: 0;
   position: absolute;
   top: 55%;
   left: 50%;
   margin-right: -50%;
-  transform: translate(-50%, -50%)
-}
+  transform: translate(-50%, -50%);
+} */
 table, th, td {
   border: 1px solid white;
 }
