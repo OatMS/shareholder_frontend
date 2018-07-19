@@ -1,90 +1,83 @@
 <template lang="html">
   <div id="app">
-    <v-toolbar color="green" class="">
-      <v-flex xs12 py-3 text-xs-left white--text>
-        <h3>Internet Thailand Public Company Limited {{ new Date().getFullYear() }}</h3>
-      </v-flex>
-      <v-flex xs12 text-xs-right white--text>
-        <h4>23 เมษายน 2561</h4>
-      </v-flex>
-    </v-toolbar>
-    <div v-if="i==0">
-      <v-layout style="margin-top: 200px;" column align-center justify-center class="white--text">
-        <img src="/static/img/icons/logo.gif" height="100" class="mt-5 mb-5">
-        <h1 class="white--text mb-4 display-1 text-xs-center">Annual General Meeting of Shareholders {{ new Date().getFullYear() }}</h1>
-        <div class="white--text subheading text-xs-center">การประชุมสามัญผู้ถือหุ้นประจำปี {{ new Date().getFullYear() }}</div>
-        <!-- <span id="element1" @click="changeText(1)">Read More...</span>
-        <span id="element2" @click="changeText(2)">Read More...</span> -->
-      </v-layout>
-    </div>
-    <div v-if="i==1">
-      <v-content style="padding: 0px; margin: 0px auto; width: 75%; height: 100%;">
-        <section>
-          <v-layout row wrap class="border" style="margin:200px 0px;">
+    <v-content>
+      <div v-if="i==0">
+        <v-layout style="margin-top: 203px;" column align-center justify-center class="white--text">
+          <img src="/static/img/icons/logo.png" height="100" class="mt-5 mb-5">
+          <h1 style="font: bold 50px 'Arial'; font-size: 50px!important;" class="white--text mb-4 display-1 text-xs-center">Annual General Meeting of Shareholders {{ new Date().getFullYear() }}</h1>
+          <div style="font: bold 50px 'Arial'; font-size: 24px!important;" class="white--text subheading text-xs-center">การประชุมสามัญผู้ถือหุ้นประจำปี {{ new Date().getFullYear() }}</div>
+          <!-- <span id="element1" @click="changeText(1)">Read More...</span>
+          <span id="element2" @click="changeText(2)">Read More...</span> -->
+        </v-layout>
+      </div>
+      <div v-if="i==1">
+        <v-content style="padding: 0px; margin: 0px auto; width: 75%; height: 100%;">
+          <section>
+            <v-layout row wrap class="border" style="margin:172px 0px;">
 
-            <v-flex xs12>
               <v-flex xs12>
-                <h1 class="black--text mb-5">ผู้ถือหุ้น</h1>
+                <v-flex xs12>
+                  <h1 style="font-size: 30px;" class="black--text mb-5">ผู้ถือหุ้น</h1>
+                </v-flex>
+
+                <v-flex class="mb-3" xs12>
+                  <span style="float: left;"  class="mr-5 black--text">จำนวนหุ้นทั้งหมด</span>
+                  <span  style="float: right;" class="black--text">{{ entrie[0].shareholders }} หุ้น</span>
+                  <div style="clear: both;"></div>
+                </v-flex>
+
+                <v-flex class="mb-3" xs12>
+                  <span style="float: left;" class="mr-5 black--text">จำนวนผู้ถือหุ้น</span>
+                  <span style="float: right;" class="black--text">{{ entrie[0].personshareholders }} คน</span>
+                  <div style="clear: both;"></div>
+                  <v-divider style="margin-top: 50px;"></v-divider>
+                </v-flex>
+
+                <v-flex class="mb-3" xs12>
+                  <span style="float: left;" class="mr-5 black--text">จำนวนหุ้นที่ลงทะเบียน</span>
+                  <span style="float: right;" class="black--text">{{ entrie[0].regisshareholders }} หุ้น</span>
+                  <div style="clear: both;"></div>
+                </v-flex>
               </v-flex>
 
               <v-flex class="mb-3" xs12>
-                <span style="float: left;"  class="mr-5 black--text">จำนวนหุ้นทั้งหมด</span>
-                <span  style="float: right;" class="black--text">{{ entrie[0].shareholders }} หุ้น</span>
-                <div style="clear: both;"></div>
-              </v-flex>
-
-              <v-flex class="mb-3" xs12>
-                <span style="float: left;" class="mr-5 black--text">จำนวนผู้ถือหุ้น</span>
-                <span style="float: right;" class="black--text">{{ entrie[0].personshareholders }} คน</span>
-                <div style="clear: both;"></div>
-                <v-divider style="margin-top: 50px;"></v-divider>
-              </v-flex>
-
-              <v-flex class="mb-3" xs12>
-                <span style="float: left;" class="mr-5 black--text">จำนวนหุ้นที่ลงทะเบียน</span>
-                <span style="float: right;" class="black--text">{{ entrie[0].regisshareholders }} หุ้น</span>
+                <span style="float: left;" class="mr-5 black--text">คิดเป็นร้อยละ</span>
+                <span style="float: right;" class="black--text">{{ entrie[0].percent }}</span>
                 <div style="clear: both;"></div>
               </v-flex>
             </v-flex>
 
             <v-flex class="mb-3" xs12>
-              <span style="float: left;" class="mr-5 black--text">คิดเป็นร้อยละ</span>
-              <span style="float: right;" class="black--text">{{ entrie[0].percent }}</span>
+              <span style="float: left;" class="mr-5 black--text">จำนวนผู้ลงทะเบียน</span>
+              <span style="float: right;" class="black--text">{{ entrie[0].regisperson }} คน</span>
               <div style="clear: both;"></div>
             </v-flex>
           </v-flex>
 
           <v-flex class="mb-3" xs12>
-            <span style="float: left;" class="mr-5 black--text">จำนวนผู้ลงทะเบียน</span>
-            <span style="float: right;" class="black--text">{{ entrie[0].regisperson }} คน</span>
+            <span style="float: left;" class="mr-5 black--text">-----ผู้มาลงคะแนนด้วยตัวเอง</span>
+            <span style="float: right;" class="black--text">{{ entrie[0].membershareholders }} คน</span>
             <div style="clear: both;"></div>
           </v-flex>
         </v-flex>
 
         <v-flex class="mb-3" xs12>
-          <span style="float: left;" class="mr-5 black--text">-----ผู้มาลงคะแนนด้วยตัวเอง</span>
-          <span style="float: right;" class="black--text">{{ entrie[0].membershareholders }} คน</span>
+          <span style="float: left;" class="mr-5 black--text">-----ผู้มอบฉันทะ</span>
+          <span style="float: right;" class="black--text">{{ entrie[0].proxyshareholders }} คน</span>
           <div style="clear: both;"></div>
         </v-flex>
       </v-flex>
-
-      <v-flex class="mb-3" xs12>
-        <span style="float: left;" class="mr-5 black--text">-----ผู้มอบฉันทะ</span>
-        <span style="float: right;" class="black--text">{{ entrie[0].proxyshareholders }} คน</span>
-        <div style="clear: both;"></div>
-      </v-flex>
-    </v-flex>
-  </v-layout>
-</section>
+    </v-layout>
+  </section>
 </v-content>
 </div>
 <div v-if="i==2">
   <v-content style="padding: 0px; margin: 0px auto; width: 75%; height: 100%;">
     <section>
-      <v-layout row wrap class="border" style="margin:300px 0px;">
+      <v-layout row wrap class="border" style="margin: 234px 0px;">
         <v-flex xs12>
           <v-flex xs12>
-            <h2 class="black--text text-xs-center mb-5">วาระที่ {{ agendaVote[0].agenda }} {{ agendaVote[0].title }}</h2>
+            <h2 style="font-size: 30px;" class="black--text text-xs-left mb-5">วาระที่ {{ agendaVote[0].agenda }} {{ agendaVote[0].title }}</h2>
           </v-flex>
 
           <!-- <v-flex class="mb-3" xs12>
@@ -150,812 +143,823 @@
 <div v-if="i==3">
   <v-content style="padding: 0px; margin: 0px auto; width: 75%; height: 100%;">
     <section>
-      <v-layout row wrap class="border" style="margin:300px 0px;">
+      <v-layout row wrap class="border" style="margin: 234px 0px;">
         <v-flex xs12>
           <v-flex xs12>
-            <h2 class="black--text text-xs-center mb-5">วาระที่ {{ agendaVote[1].agenda }} {{ agendaVote[1].title }}</h2>
+            <h2 style="font-size: 30px;" class="black--text text-xs-left mb-5">วาระที่ {{ agendaVote[1].agenda }} {{ agendaVote[1].title }}</h2>
           </v-flex>
 
           <!-- <v-flex class="mb-4" md4>
-            <span class="mr-5 black--text">เห็นด้วย</span>
-          </v-flex>
-
-          <v-flex style="text-align: center;" md4>
-            <span class="black--text">{{ agendaVote[1].accept }} หุ้น</span>
-          </v-flex>
-
-          <v-flex style="text-align: right;" md4>
-            <span class="black--text">99.9853 %</span>
-          </v-flex>
-
-          <v-flex class="mb-4" md4>
-            <span style="float: left;"  class="mr-5 black--text">ไม่เห็นด้วย</span>
-          </v-flex>
-
-          <v-flex style="text-align: center;" md4>
-            <span class="black--text">{{ agendaVote[1].noaccept }} หุ้น</span>
-          </v-flex>
-
-          <v-flex style="text-align: right;" md4>
-            <span class="black--text">0.0147 %</span>
-          </v-flex>
-
-          <v-flex class="mb-4" md4>
-            <span style="float: left;"  class="mr-5 black--text">งดออกเสียง</span>
-          </v-flex>
-
-          <v-flex style="text-align: center;" md4>
-            <span class="black--text">{{ agendaVote[1].abstain }} หุ้น</span>
-          </v-flex>
-
-          <v-flex style="text-align: right;" md4>
-            <span class="black--text">0 %</span>
-          </v-flex>
-
-          <v-flex md4>
-            <span style="float: left;"  class="mr-5 black--text">บัตรเสีย</span>
-          </v-flex>
-
-          <v-flex style="text-align: center;" md4>
-            <span class="black--text">{{ agendaVote[1].broke }} หุ้น</span>
-          </v-flex>
-
-          <v-flex style="text-align: right;" md4>
-            <span class="black--text">0 %</span>
-          </v-flex> -->
-
-          <table style="width: 100%; text-align:center;">
-            <tr>
-              <td style="text-align: left;">เห็นด้วย</td>
-              <td style="text-align: right;">{{ agendaVote[1].accept }}</td>
-              <td style="text-align: left; padding-left: 10px;">หุ้น</td>
-              <td style="text-align: right;">99.9853 %</td>
-            </tr>
-            <tr>
-              <td style="text-align: left;">ไม่เห็นด้วย</td>
-              <td style="text-align: right;">{{ agendaVote[1].noaccept }}</td>
-              <td style="text-align: left; padding-left: 10px;">หุ้น</td>
-              <td style="text-align: right;">0.0147 %</td>
-            </tr>
-            <tr>
-              <td style="text-align: left;">งดออกเสียง</td>
-              <td style="text-align: right;">{{ agendaVote[1].abstain }}</td>
-              <td style="text-align: left; padding-left: 10px;">หุ้น</td>
-              <td style="text-align: right;">0 %</td>
-            </tr>
-            <tr>
-              <td style="text-align: left;">บัตรเสีย</td>
-              <td style="text-align: right;">{{ agendaVote[1].broke }}</td>
-              <td style="text-align: left; padding-left: 10px;">หุ้น</td>
-              <td style="text-align: right;">0 %</td>
-            </tr>
-          </table>
-
+          <span class="mr-5 black--text">เห็นด้วย</span>
         </v-flex>
 
-      </v-layout>
-    </section>
-  </v-content>
+        <v-flex style="text-align: center;" md4>
+        <span class="black--text">{{ agendaVote[1].accept }} หุ้น</span>
+      </v-flex>
+
+      <v-flex style="text-align: right;" md4>
+      <span class="black--text">99.9853 %</span>
+    </v-flex>
+
+    <v-flex class="mb-4" md4>
+    <span style="float: left;"  class="mr-5 black--text">ไม่เห็นด้วย</span>
+  </v-flex>
+
+  <v-flex style="text-align: center;" md4>
+  <span class="black--text">{{ agendaVote[1].noaccept }} หุ้น</span>
+</v-flex>
+
+<v-flex style="text-align: right;" md4>
+<span class="black--text">0.0147 %</span>
+</v-flex>
+
+<v-flex class="mb-4" md4>
+<span style="float: left;"  class="mr-5 black--text">งดออกเสียง</span>
+</v-flex>
+
+<v-flex style="text-align: center;" md4>
+<span class="black--text">{{ agendaVote[1].abstain }} หุ้น</span>
+</v-flex>
+
+<v-flex style="text-align: right;" md4>
+<span class="black--text">0 %</span>
+</v-flex>
+
+<v-flex md4>
+<span style="float: left;"  class="mr-5 black--text">บัตรเสีย</span>
+</v-flex>
+
+<v-flex style="text-align: center;" md4>
+<span class="black--text">{{ agendaVote[1].broke }} หุ้น</span>
+</v-flex>
+
+<v-flex style="text-align: right;" md4>
+<span class="black--text">0 %</span>
+</v-flex> -->
+
+<table style="width: 100%; text-align:center;">
+  <tr>
+    <td style="text-align: left;">เห็นด้วย</td>
+    <td style="text-align: right;">{{ agendaVote[1].accept }}</td>
+    <td style="text-align: left; padding-left: 10px;">หุ้น</td>
+    <td style="text-align: right;">99.9853 %</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">ไม่เห็นด้วย</td>
+    <td style="text-align: right;">{{ agendaVote[1].noaccept }}</td>
+    <td style="text-align: left; padding-left: 10px;">หุ้น</td>
+    <td style="text-align: right;">0.0147 %</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">งดออกเสียง</td>
+    <td style="text-align: right;">{{ agendaVote[1].abstain }}</td>
+    <td style="text-align: left; padding-left: 10px;">หุ้น</td>
+    <td style="text-align: right;">0 %</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">บัตรเสีย</td>
+    <td style="text-align: right;">{{ agendaVote[1].broke }}</td>
+    <td style="text-align: left; padding-left: 10px;">หุ้น</td>
+    <td style="text-align: right;">0 %</td>
+  </tr>
+</table>
+
+</v-flex>
+
+</v-layout>
+</section>
+</v-content>
 </div>
 <div v-if="i==4">
   <v-content style="padding: 0px; margin: 0px auto; width: 75%; height: 100%;">
     <section>
-      <v-layout row wrap class="border" style="margin:300px 0px;">
+      <v-layout row wrap class="border" style="margin: 234px 0px;">
         <v-flex xs12>
-        <v-flex xs12>
-          <h2 class="black--text text-xs-center mb-5">วาระที่ {{ agendaVote[2].agenda }} {{ agendaVote[2].title }}</h2>
-        </v-flex>
+          <v-flex xs12>
+            <h2 style="font-size: 30px;" class="black--text text-xs-left mb-5">วาระที่ {{ agendaVote[2].agenda }} {{ agendaVote[2].title }}</h2>
+          </v-flex>
 
-        <!-- <v-flex class="mb-4" md4>
+          <!-- <v-flex class="mb-4" md4>
           <span class="mr-5 black--text">เห็นด้วย</span>
         </v-flex>
 
         <v-flex style="text-align: center;" md4>
-          <span class="black--text">{{ agendaVote[2].accept }} หุ้น</span>
-        </v-flex>
-
-        <v-flex style="text-align: right;" md4>
-          <span class="black--text">99.9853 %</span>
-        </v-flex>
-
-        <v-flex class="mb-4" md4>
-          <span style="float: left;"  class="mr-5 black--text">ไม่เห็นด้วย</span>
-        </v-flex>
-
-        <v-flex style="text-align: center;" md4>
-          <span class="black--text">{{ agendaVote[2].noaccept }} หุ้น</span>
-        </v-flex>
-
-        <v-flex style="text-align: right;" md4>
-          <span class="black--text">0.0147 %</span>
-        </v-flex>
-
-        <v-flex class="mb-4" md4>
-          <span style="float: left;"  class="mr-5 black--text">งดออกเสียง</span>
-        </v-flex>
-
-        <v-flex style="text-align: center;" md4>
-          <span class="black--text">{{ agendaVote[2].abstain }} หุ้น</span>
-        </v-flex>
-
-        <v-flex style="text-align: right;" md4>
-          <span class="black--text">0 %</span>
-        </v-flex>
-
-        <v-flex md4>
-          <span style="float: left;"  class="mr-5 black--text">บัตรเสีย</span>
-        </v-flex>
-
-        <v-flex style="text-align: center;" md4>
-          <span class="black--text">{{ agendaVote[2].broke }} หุ้น</span>
-        </v-flex>
-
-        <v-flex style="text-align: right;" md4>
-          <span class="black--text">0 %</span>
-        </v-flex> -->
-
-        <table style="width: 100%; text-align:center;">
-          <tr>
-            <td style="text-align: left;">เห็นด้วย</td>
-            <td style="text-align: right;">{{ agendaVote[2].accept }}</td>
-            <td style="text-align: left; padding-left: 10px;">หุ้น</td>
-            <td style="text-align: right;">99.9853 %</td>
-          </tr>
-          <tr>
-            <td style="text-align: left;">ไม่เห็นด้วย</td>
-            <td style="text-align: right;">{{ agendaVote[2].noaccept }}</td>
-            <td style="text-align: left; padding-left: 10px;">หุ้น</td>
-            <td style="text-align: right;">0.0147 %</td>
-          </tr>
-          <tr>
-            <td style="text-align: left;">งดออกเสียง</td>
-            <td style="text-align: right;">{{ agendaVote[2].abstain }}</td>
-            <td style="text-align: left; padding-left: 10px;">หุ้น</td>
-            <td style="text-align: right;">0 %</td>
-          </tr>
-          <tr>
-            <td style="text-align: left;">บัตรเสีย</td>
-            <td style="text-align: right;">{{ agendaVote[2].broke }}</td>
-            <td style="text-align: left; padding-left: 10px;">หุ้น</td>
-            <td style="text-align: right;">0 %</td>
-          </tr>
-        </table>
+        <span class="black--text">{{ agendaVote[2].accept }} หุ้น</span>
       </v-flex>
 
-      </v-layout>
-    </section>
-  </v-content>
+      <v-flex style="text-align: right;" md4>
+      <span class="black--text">99.9853 %</span>
+    </v-flex>
+
+    <v-flex class="mb-4" md4>
+    <span style="float: left;"  class="mr-5 black--text">ไม่เห็นด้วย</span>
+  </v-flex>
+
+  <v-flex style="text-align: center;" md4>
+  <span class="black--text">{{ agendaVote[2].noaccept }} หุ้น</span>
+</v-flex>
+
+<v-flex style="text-align: right;" md4>
+<span class="black--text">0.0147 %</span>
+</v-flex>
+
+<v-flex class="mb-4" md4>
+<span style="float: left;"  class="mr-5 black--text">งดออกเสียง</span>
+</v-flex>
+
+<v-flex style="text-align: center;" md4>
+<span class="black--text">{{ agendaVote[2].abstain }} หุ้น</span>
+</v-flex>
+
+<v-flex style="text-align: right;" md4>
+<span class="black--text">0 %</span>
+</v-flex>
+
+<v-flex md4>
+<span style="float: left;"  class="mr-5 black--text">บัตรเสีย</span>
+</v-flex>
+
+<v-flex style="text-align: center;" md4>
+<span class="black--text">{{ agendaVote[2].broke }} หุ้น</span>
+</v-flex>
+
+<v-flex style="text-align: right;" md4>
+<span class="black--text">0 %</span>
+</v-flex> -->
+
+<table style="width: 100%; text-align:center;">
+  <tr>
+    <td style="text-align: left;">เห็นด้วย</td>
+    <td style="text-align: right;">{{ agendaVote[2].accept }}</td>
+    <td style="text-align: left; padding-left: 10px;">หุ้น</td>
+    <td style="text-align: right;">99.9853 %</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">ไม่เห็นด้วย</td>
+    <td style="text-align: right;">{{ agendaVote[2].noaccept }}</td>
+    <td style="text-align: left; padding-left: 10px;">หุ้น</td>
+    <td style="text-align: right;">0.0147 %</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">งดออกเสียง</td>
+    <td style="text-align: right;">{{ agendaVote[2].abstain }}</td>
+    <td style="text-align: left; padding-left: 10px;">หุ้น</td>
+    <td style="text-align: right;">0 %</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">บัตรเสีย</td>
+    <td style="text-align: right;">{{ agendaVote[2].broke }}</td>
+    <td style="text-align: left; padding-left: 10px;">หุ้น</td>
+    <td style="text-align: right;">0 %</td>
+  </tr>
+</table>
+</v-flex>
+
+</v-layout>
+</section>
+</v-content>
 </div>
 <div v-if="i==5">
   <v-content style="padding: 0px; margin: 0px auto; width: 75%; height: 100%;">
     <section>
-      <v-layout row wrap class="border" style="margin:150px 0px;">
+      <v-layout row wrap class="border" style="margin: 85px 0px;">
         <v-flex xs12>
-        <v-flex xs12>
-          <h2 class="black--text text-xs-center mb-5">วาระที่ {{ agendaVote[3].agenda }}.{{ agendaVote[3].subAgenda }} {{ agendaVote[3].title }}</h2>
-        </v-flex>
-        <img style="display: block; margin: 0 auto;" v-bind:src="'/static/img/icons/' + agendaVote[3].imagePath" height="250" class="mb-5">
-        <!-- <v-flex class="mb-4" md4>
+          <v-flex xs12>
+            <h2 style="font-size: 30px;" class="black--text text-xs-left mb-5">วาระที่ {{ agendaVote[3].agenda }}.{{ agendaVote[3].subAgenda }} {{ agendaVote[3].title }}</h2>
+          </v-flex>
+          <img style="display: block; margin: 0 auto;" v-bind:src="'/static/img/icons/' + agendaVote[3].imagePath" height="250" class="mb-5">
+          <!-- <v-flex class="mb-4" md4>
           <span class="mr-5 black--text">เห็นด้วย</span>
         </v-flex>
 
         <v-flex style="text-align: center;" md4>
-          <span class="black--text">{{ agendaVote[3].accept }} หุ้น</span>
-        </v-flex>
-
-        <v-flex style="text-align: right;" md4>
-          <span class="black--text">99.9853 %</span>
-        </v-flex>
-
-        <v-flex class="mb-4" md4>
-          <span style="float: left;"  class="mr-5 black--text">ไม่เห็นด้วย</span>
-        </v-flex>
-
-        <v-flex style="text-align: center;" md4>
-          <span class="black--text">{{ agendaVote[3].noaccept }} หุ้น</span>
-        </v-flex>
-
-        <v-flex style="text-align: right;" md4>
-          <span class="black--text">0.0147 %</span>
-        </v-flex>
-
-        <v-flex class="mb-4" md4>
-          <span style="float: left;"  class="mr-5 black--text">งดออกเสียง</span>
-        </v-flex>
-
-        <v-flex style="text-align: center;" md4>
-          <span class="black--text">{{ agendaVote[3].abstain }} หุ้น</span>
-        </v-flex>
-
-        <v-flex style="text-align: right;" md4>
-          <span class="black--text">0 %</span>
-        </v-flex>
-
-        <v-flex md4>
-          <span style="float: left;"  class="mr-5 black--text">บัตรเสีย</span>
-        </v-flex>
-
-        <v-flex style="text-align: center;" md4>
-          <span class="black--text">{{ agendaVote[3].broke }} หุ้น</span>
-        </v-flex>
-
-        <v-flex style="text-align: right;" md4>
-          <span class="black--text">0 %</span>
-        </v-flex> -->
-
-        <table style="width: 100%; text-align:center;">
-          <tr>
-            <td style="text-align: left;">เห็นด้วย</td>
-            <td style="text-align: right;">{{ agendaVote[3].accept }}</td>
-            <td style="text-align: left; padding-left: 10px;">หุ้น</td>
-            <td style="text-align: right;">99.9853 %</td>
-          </tr>
-          <tr>
-            <td style="text-align: left;">ไม่เห็นด้วย</td>
-            <td style="text-align: right;">{{ agendaVote[3].noaccept }}</td>
-            <td style="text-align: left; padding-left: 10px;">หุ้น</td>
-            <td style="text-align: right;">0.0147 %</td>
-          </tr>
-          <tr>
-            <td style="text-align: left;">งดออกเสียง</td>
-            <td style="text-align: right;">{{ agendaVote[3].abstain }}</td>
-            <td style="text-align: left; padding-left: 10px;">หุ้น</td>
-            <td style="text-align: right;">0 %</td>
-          </tr>
-          <tr>
-            <td style="text-align: left;">บัตรเสีย</td>
-            <td style="text-align: right;">{{ agendaVote[3].broke }}</td>
-            <td style="text-align: left; padding-left: 10px;">หุ้น</td>
-            <td style="text-align: right;">0 %</td>
-          </tr>
-        </table>
-
+        <span class="black--text">{{ agendaVote[3].accept }} หุ้น</span>
       </v-flex>
-      </v-layout>
-    </section>
-  </v-content>
+
+      <v-flex style="text-align: right;" md4>
+      <span class="black--text">99.9853 %</span>
+    </v-flex>
+
+    <v-flex class="mb-4" md4>
+    <span style="float: left;"  class="mr-5 black--text">ไม่เห็นด้วย</span>
+  </v-flex>
+
+  <v-flex style="text-align: center;" md4>
+  <span class="black--text">{{ agendaVote[3].noaccept }} หุ้น</span>
+</v-flex>
+
+<v-flex style="text-align: right;" md4>
+<span class="black--text">0.0147 %</span>
+</v-flex>
+
+<v-flex class="mb-4" md4>
+<span style="float: left;"  class="mr-5 black--text">งดออกเสียง</span>
+</v-flex>
+
+<v-flex style="text-align: center;" md4>
+<span class="black--text">{{ agendaVote[3].abstain }} หุ้น</span>
+</v-flex>
+
+<v-flex style="text-align: right;" md4>
+<span class="black--text">0 %</span>
+</v-flex>
+
+<v-flex md4>
+<span style="float: left;"  class="mr-5 black--text">บัตรเสีย</span>
+</v-flex>
+
+<v-flex style="text-align: center;" md4>
+<span class="black--text">{{ agendaVote[3].broke }} หุ้น</span>
+</v-flex>
+
+<v-flex style="text-align: right;" md4>
+<span class="black--text">0 %</span>
+</v-flex> -->
+
+<table style="width: 100%; text-align:center;">
+  <tr>
+    <td style="text-align: left;">เห็นด้วย</td>
+    <td style="text-align: right;">{{ agendaVote[3].accept }}</td>
+    <td style="text-align: left; padding-left: 10px;">หุ้น</td>
+    <td style="text-align: right;">99.9853 %</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">ไม่เห็นด้วย</td>
+    <td style="text-align: right;">{{ agendaVote[3].noaccept }}</td>
+    <td style="text-align: left; padding-left: 10px;">หุ้น</td>
+    <td style="text-align: right;">0.0147 %</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">งดออกเสียง</td>
+    <td style="text-align: right;">{{ agendaVote[3].abstain }}</td>
+    <td style="text-align: left; padding-left: 10px;">หุ้น</td>
+    <td style="text-align: right;">0 %</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">บัตรเสีย</td>
+    <td style="text-align: right;">{{ agendaVote[3].broke }}</td>
+    <td style="text-align: left; padding-left: 10px;">หุ้น</td>
+    <td style="text-align: right;">0 %</td>
+  </tr>
+</table>
+
+</v-flex>
+</v-layout>
+</section>
+</v-content>
 </div>
 <div v-if="i==6">
   <v-content style="padding: 0px; margin: 0px auto; width: 75%; height: 100%;">
     <section>
-      <v-layout row wrap class="border" style="margin:150px 0px;">
+      <v-layout row wrap class="border" style="margin:85px 0px;">
         <v-flex xs12>
-        <v-flex xs12>
-          <h2 class="black--text text-xs-center mb-5">วาระที่ {{ agendaVote[4].agenda }}.{{ agendaVote[4].subAgenda }} {{ agendaVote[4].title }}</h2>
-        </v-flex>
-        <img style="display: block; margin: 0 auto;" v-bind:src="'/static/img/icons/' + agendaVote[4].imagePath" height="250" class="mb-5">
-        <!-- <v-flex class="mb-4" md4>
+          <v-flex xs12>
+            <h2 style="font-size: 30px;" class="black--text text-xs-left mb-5">วาระที่ {{ agendaVote[4].agenda }}.{{ agendaVote[4].subAgenda }} {{ agendaVote[4].title }}</h2>
+          </v-flex>
+          <img style="display: block; margin: 0 auto;" v-bind:src="'/static/img/icons/' + agendaVote[4].imagePath" height="250" class="mb-5">
+          <!-- <v-flex class="mb-4" md4>
           <span class="mr-5 black--text">เห็นด้วย</span>
         </v-flex>
 
         <v-flex style="text-align: center;" md4>
-          <span class="black--text">{{ agendaVote[4].accept }} หุ้น</span>
-        </v-flex>
-
-        <v-flex style="text-align: right;" md4>
-          <span class="black--text">99.9853 %</span>
-        </v-flex>
-
-        <v-flex class="mb-4" md4>
-          <span style="float: left;"  class="mr-5 black--text">ไม่เห็นด้วย</span>
-        </v-flex>
-
-        <v-flex style="text-align: center;" md4>
-          <span class="black--text">{{ agendaVote[4].noaccept }} หุ้น</span>
-        </v-flex>
-
-        <v-flex style="text-align: right;" md4>
-          <span class="black--text">0.0147 %</span>
-        </v-flex>
-
-        <v-flex class="mb-4" md4>
-          <span style="float: left;"  class="mr-5 black--text">งดออกเสียง</span>
-        </v-flex>
-
-        <v-flex style="text-align: center;" md4>
-          <span class="black--text">{{ agendaVote[4].abstain }} หุ้น</span>
-        </v-flex>
-
-        <v-flex style="text-align: right;" md4>
-          <span class="black--text">0 %</span>
-        </v-flex>
-
-        <v-flex md4>
-          <span style="float: left;"  class="mr-5 black--text">บัตรเสีย</span>
-        </v-flex>
-
-        <v-flex style="text-align: center;" md4>
-          <span class="black--text">{{ agendaVote[4].broke }} หุ้น</span>
-        </v-flex>
-
-        <v-flex style="text-align: right;" md4>
-          <span class="black--text">0 %</span>
-        </v-flex> -->
-
-        <table style="width: 100%; text-align:center;">
-          <tr>
-            <td style="text-align: left;">เห็นด้วย</td>
-            <td style="text-align: right;">{{ agendaVote[4].accept }}</td>
-            <td style="text-align: left; padding-left: 10px;">หุ้น</td>
-            <td style="text-align: right;">99.9853 %</td>
-          </tr>
-          <tr>
-            <td style="text-align: left;">ไม่เห็นด้วย</td>
-            <td style="text-align: right;">{{ agendaVote[4].noaccept }}</td>
-            <td style="text-align: left; padding-left: 10px;">หุ้น</td>
-            <td style="text-align: right;">0.0147 %</td>
-          </tr>
-          <tr>
-            <td style="text-align: left;">งดออกเสียง</td>
-            <td style="text-align: right;">{{ agendaVote[4].abstain }}</td>
-            <td style="text-align: left; padding-left: 10px;">หุ้น</td>
-            <td style="text-align: right;">0 %</td>
-          </tr>
-          <tr>
-            <td style="text-align: left;">บัตรเสีย</td>
-            <td style="text-align: right;">{{ agendaVote[4].broke }}</td>
-            <td style="text-align: left; padding-left: 10px;">หุ้น</td>
-            <td style="text-align: right;">0 %</td>
-          </tr>
-        </table>
-
+        <span class="black--text">{{ agendaVote[4].accept }} หุ้น</span>
       </v-flex>
-      </v-layout>
-    </section>
-  </v-content>
+
+      <v-flex style="text-align: right;" md4>
+      <span class="black--text">99.9853 %</span>
+    </v-flex>
+
+    <v-flex class="mb-4" md4>
+    <span style="float: left;"  class="mr-5 black--text">ไม่เห็นด้วย</span>
+  </v-flex>
+
+  <v-flex style="text-align: center;" md4>
+  <span class="black--text">{{ agendaVote[4].noaccept }} หุ้น</span>
+</v-flex>
+
+<v-flex style="text-align: right;" md4>
+<span class="black--text">0.0147 %</span>
+</v-flex>
+
+<v-flex class="mb-4" md4>
+<span style="float: left;"  class="mr-5 black--text">งดออกเสียง</span>
+</v-flex>
+
+<v-flex style="text-align: center;" md4>
+<span class="black--text">{{ agendaVote[4].abstain }} หุ้น</span>
+</v-flex>
+
+<v-flex style="text-align: right;" md4>
+<span class="black--text">0 %</span>
+</v-flex>
+
+<v-flex md4>
+<span style="float: left;"  class="mr-5 black--text">บัตรเสีย</span>
+</v-flex>
+
+<v-flex style="text-align: center;" md4>
+<span class="black--text">{{ agendaVote[4].broke }} หุ้น</span>
+</v-flex>
+
+<v-flex style="text-align: right;" md4>
+<span class="black--text">0 %</span>
+</v-flex> -->
+
+<table style="width: 100%; text-align:center;">
+  <tr>
+    <td style="text-align: left;">เห็นด้วย</td>
+    <td style="text-align: right;">{{ agendaVote[4].accept }}</td>
+    <td style="text-align: left; padding-left: 10px;">หุ้น</td>
+    <td style="text-align: right;">99.9853 %</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">ไม่เห็นด้วย</td>
+    <td style="text-align: right;">{{ agendaVote[4].noaccept }}</td>
+    <td style="text-align: left; padding-left: 10px;">หุ้น</td>
+    <td style="text-align: right;">0.0147 %</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">งดออกเสียง</td>
+    <td style="text-align: right;">{{ agendaVote[4].abstain }}</td>
+    <td style="text-align: left; padding-left: 10px;">หุ้น</td>
+    <td style="text-align: right;">0 %</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">บัตรเสีย</td>
+    <td style="text-align: right;">{{ agendaVote[4].broke }}</td>
+    <td style="text-align: left; padding-left: 10px;">หุ้น</td>
+    <td style="text-align: right;">0 %</td>
+  </tr>
+</table>
+
+</v-flex>
+</v-layout>
+</section>
+</v-content>
 </div>
 <div v-if="i==7">
   <v-content style="padding: 0px; margin: 0px auto; width: 75%; height: 100%;">
     <section>
-      <v-layout row wrap class="border" style="margin:150px 0px;">
+      <v-layout row wrap class="border" style="margin:85px 0px;">
         <v-flex xs12>
-        <v-flex xs12>
-          <h2 class="black--text text-xs-center mb-5">วาระที่ {{ agendaVote[5].agenda }}.{{ agendaVote[5].subAgenda }} {{ agendaVote[5].title }}</h2>
-        </v-flex>
-        <img style="display: block; margin: 0 auto;" v-bind:src="'/static/img/icons/' + agendaVote[5].imagePath" height="250" class="mb-5">
-        <!-- <v-flex class="mb-4" md4>
+          <v-flex xs12>
+            <h2 style="font-size: 30px;" class="black--text text-xs-left mb-5">วาระที่ {{ agendaVote[5].agenda }}.{{ agendaVote[5].subAgenda }} {{ agendaVote[5].title }}</h2>
+          </v-flex>
+          <img style="display: block; margin: 0 auto;" v-bind:src="'/static/img/icons/' + agendaVote[5].imagePath" height="250" class="mb-5">
+          <!-- <v-flex class="mb-4" md4>
           <span class="mr-5 black--text">เห็นด้วย</span>
         </v-flex>
 
         <v-flex style="text-align: center;" md4>
-          <span class="black--text">{{ agendaVote[5].accept }} หุ้น</span>
-        </v-flex>
-
-        <v-flex style="text-align: right;" md4>
-          <span class="black--text">99.9853 %</span>
-        </v-flex>
-
-        <v-flex class="mb-4" md4>
-          <span style="float: left;"  class="mr-5 black--text">ไม่เห็นด้วย</span>
-        </v-flex>
-
-        <v-flex style="text-align: center;" md4>
-          <span class="black--text">{{ agendaVote[5].noaccept }} หุ้น</span>
-        </v-flex>
-
-        <v-flex style="text-align: right;" md4>
-          <span class="black--text">0.0147 %</span>
-        </v-flex>
-
-        <v-flex class="mb-4" md4>
-          <span style="float: left;"  class="mr-5 black--text">งดออกเสียง</span>
-        </v-flex>
-
-        <v-flex style="text-align: center;" md4>
-          <span class="black--text">{{ agendaVote[5].abstain }} หุ้น</span>
-        </v-flex>
-
-        <v-flex style="text-align: right;" md4>
-          <span class="black--text">0 %</span>
-        </v-flex>
-
-        <v-flex md4>
-          <span style="float: left;"  class="mr-5 black--text">บัตรเสีย</span>
-        </v-flex>
-
-        <v-flex style="text-align: center;" md4>
-          <span class="black--text">{{ agendaVote[5].broke }} หุ้น</span>
-        </v-flex>
-
-        <v-flex style="text-align: right;" md4>
-          <span class="black--text">0 %</span>
-        </v-flex> -->
-
-        <table style="width: 100%; text-align:center;">
-          <tr>
-            <td style="text-align: left;">เห็นด้วย</td>
-            <td style="text-align: right;">{{ agendaVote[5].accept }}</td>
-            <td style="text-align: left; padding-left: 10px;">หุ้น</td>
-            <td style="text-align: right;">99.9853 %</td>
-          </tr>
-          <tr>
-            <td style="text-align: left;">ไม่เห็นด้วย</td>
-            <td style="text-align: right;">{{ agendaVote[5].noaccept }}</td>
-            <td style="text-align: left; padding-left: 10px;">หุ้น</td>
-            <td style="text-align: right;">0.0147 %</td>
-          </tr>
-          <tr>
-            <td style="text-align: left;">งดออกเสียง</td>
-            <td style="text-align: right;">{{ agendaVote[5].abstain }}</td>
-            <td style="text-align: left; padding-left: 10px;">หุ้น</td>
-            <td style="text-align: right;">0 %</td>
-          </tr>
-          <tr>
-            <td style="text-align: left;">บัตรเสีย</td>
-            <td style="text-align: right;">{{ agendaVote[5].broke }}</td>
-            <td style="text-align: left; padding-left: 10px;">หุ้น</td>
-            <td style="text-align: right;">0 %</td>
-          </tr>
-        </table>
-
+        <span class="black--text">{{ agendaVote[5].accept }} หุ้น</span>
       </v-flex>
-      </v-layout>
-    </section>
-  </v-content>
+
+      <v-flex style="text-align: right;" md4>
+      <span class="black--text">99.9853 %</span>
+    </v-flex>
+
+    <v-flex class="mb-4" md4>
+    <span style="float: left;"  class="mr-5 black--text">ไม่เห็นด้วย</span>
+  </v-flex>
+
+  <v-flex style="text-align: center;" md4>
+  <span class="black--text">{{ agendaVote[5].noaccept }} หุ้น</span>
+</v-flex>
+
+<v-flex style="text-align: right;" md4>
+<span class="black--text">0.0147 %</span>
+</v-flex>
+
+<v-flex class="mb-4" md4>
+<span style="float: left;"  class="mr-5 black--text">งดออกเสียง</span>
+</v-flex>
+
+<v-flex style="text-align: center;" md4>
+<span class="black--text">{{ agendaVote[5].abstain }} หุ้น</span>
+</v-flex>
+
+<v-flex style="text-align: right;" md4>
+<span class="black--text">0 %</span>
+</v-flex>
+
+<v-flex md4>
+<span style="float: left;"  class="mr-5 black--text">บัตรเสีย</span>
+</v-flex>
+
+<v-flex style="text-align: center;" md4>
+<span class="black--text">{{ agendaVote[5].broke }} หุ้น</span>
+</v-flex>
+
+<v-flex style="text-align: right;" md4>
+<span class="black--text">0 %</span>
+</v-flex> -->
+
+<table style="width: 100%; text-align:center;">
+  <tr>
+    <td style="text-align: left;">เห็นด้วย</td>
+    <td style="text-align: right;">{{ agendaVote[5].accept }}</td>
+    <td style="text-align: left; padding-left: 10px;">หุ้น</td>
+    <td style="text-align: right;">99.9853 %</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">ไม่เห็นด้วย</td>
+    <td style="text-align: right;">{{ agendaVote[5].noaccept }}</td>
+    <td style="text-align: left; padding-left: 10px;">หุ้น</td>
+    <td style="text-align: right;">0.0147 %</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">งดออกเสียง</td>
+    <td style="text-align: right;">{{ agendaVote[5].abstain }}</td>
+    <td style="text-align: left; padding-left: 10px;">หุ้น</td>
+    <td style="text-align: right;">0 %</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">บัตรเสีย</td>
+    <td style="text-align: right;">{{ agendaVote[5].broke }}</td>
+    <td style="text-align: left; padding-left: 10px;">หุ้น</td>
+    <td style="text-align: right;">0 %</td>
+  </tr>
+</table>
+
+</v-flex>
+</v-layout>
+</section>
+</v-content>
 </div>
 <div v-if="i==8">
   <v-content style="padding: 0px; margin: 0px auto; width: 75%; height: 100%;">
     <section>
-      <v-layout row wrap class="border" style="margin:150px 0px;">
+      <v-layout row wrap class="border" style="margin:85px 0px;">
         <v-flex xs12>
-        <v-flex xs12>
-          <h2 class="black--text text-xs-center mb-5">วาระที่ {{ agendaVote[6].agenda }}.{{ agendaVote[6].subAgenda }} {{ agendaVote[6].title }}</h2>
-        </v-flex>
-        <img style="display: block; margin: 0 auto;" v-bind:src="'/static/img/icons/' + agendaVote[6].imagePath" height="250" class="mb-5">
-        <!-- <v-flex class="mb-4" md4>
+          <v-flex xs12>
+            <h2 style="font-size: 30px;" class="black--text text-xs-left mb-5">วาระที่ {{ agendaVote[6].agenda }}.{{ agendaVote[6].subAgenda }} {{ agendaVote[6].title }}</h2>
+          </v-flex>
+          <img style="display: block; margin: 0 auto;" v-bind:src="'/static/img/icons/' + agendaVote[6].imagePath" height="250" class="mb-5">
+          <!-- <v-flex class="mb-4" md4>
           <span class="mr-5 black--text">เห็นด้วย</span>
         </v-flex>
 
         <v-flex style="text-align: center;" md4>
-          <span class="black--text">{{ agendaVote[6].accept }} หุ้น</span>
-        </v-flex>
-
-        <v-flex style="text-align: right;" md4>
-          <span class="black--text">99.9853 %</span>
-        </v-flex>
-
-        <v-flex class="mb-4" md4>
-          <span style="float: left;"  class="mr-5 black--text">ไม่เห็นด้วย</span>
-        </v-flex>
-
-        <v-flex style="text-align: center;" md4>
-          <span class="black--text">{{ agendaVote[6].noaccept }} หุ้น</span>
-        </v-flex>
-
-        <v-flex style="text-align: right;" md4>
-          <span class="black--text">0.0147 %</span>
-        </v-flex>
-
-        <v-flex class="mb-4" md4>
-          <span style="float: left;"  class="mr-5 black--text">งดออกเสียง</span>
-        </v-flex>
-
-        <v-flex style="text-align: center;" md4>
-          <span class="black--text">{{ agendaVote[6].abstain }} หุ้น</span>
-        </v-flex>
-
-        <v-flex style="text-align: right;" md4>
-          <span class="black--text">0 %</span>
-        </v-flex>
-
-        <v-flex md4>
-          <span style="float: left;"  class="mr-5 black--text">บัตรเสีย</span>
-        </v-flex>
-
-        <v-flex style="text-align: center;" md4>
-          <span class="black--text">{{ agendaVote[6].broke }} หุ้น</span>
-        </v-flex>
-
-        <v-flex style="text-align: right;" md4>
-          <span class="black--text">0 %</span>
-        </v-flex> -->
-
-        <table style="width: 100%; text-align:center;">
-          <tr>
-            <td style="text-align: left;">เห็นด้วย</td>
-            <td style="text-align: right;">{{ agendaVote[6].accept }}</td>
-            <td style="text-align: left; padding-left: 10px;">หุ้น</td>
-            <td style="text-align: right;">99.9853 %</td>
-          </tr>
-          <tr>
-            <td style="text-align: left;">ไม่เห็นด้วย</td>
-            <td style="text-align: right;">{{ agendaVote[6].noaccept }}</td>
-            <td style="text-align: left; padding-left: 10px;">หุ้น</td>
-            <td style="text-align: right;">0.0147 %</td>
-          </tr>
-          <tr>
-            <td style="text-align: left;">งดออกเสียง</td>
-            <td style="text-align: right;">{{ agendaVote[6].abstain }}</td>
-            <td style="text-align: left; padding-left: 10px;">หุ้น</td>
-            <td style="text-align: right;">0 %</td>
-          </tr>
-          <tr>
-            <td style="text-align: left;">บัตรเสีย</td>
-            <td style="text-align: right;">{{ agendaVote[6].broke }}</td>
-            <td style="text-align: left; padding-left: 10px;">หุ้น</td>
-            <td style="text-align: right;">0 %</td>
-          </tr>
-        </table>
-
+        <span class="black--text">{{ agendaVote[6].accept }} หุ้น</span>
       </v-flex>
-      </v-layout>
-    </section>
-  </v-content>
+
+      <v-flex style="text-align: right;" md4>
+      <span class="black--text">99.9853 %</span>
+    </v-flex>
+
+    <v-flex class="mb-4" md4>
+    <span style="float: left;"  class="mr-5 black--text">ไม่เห็นด้วย</span>
+  </v-flex>
+
+  <v-flex style="text-align: center;" md4>
+  <span class="black--text">{{ agendaVote[6].noaccept }} หุ้น</span>
+</v-flex>
+
+<v-flex style="text-align: right;" md4>
+<span class="black--text">0.0147 %</span>
+</v-flex>
+
+<v-flex class="mb-4" md4>
+<span style="float: left;"  class="mr-5 black--text">งดออกเสียง</span>
+</v-flex>
+
+<v-flex style="text-align: center;" md4>
+<span class="black--text">{{ agendaVote[6].abstain }} หุ้น</span>
+</v-flex>
+
+<v-flex style="text-align: right;" md4>
+<span class="black--text">0 %</span>
+</v-flex>
+
+<v-flex md4>
+<span style="float: left;"  class="mr-5 black--text">บัตรเสีย</span>
+</v-flex>
+
+<v-flex style="text-align: center;" md4>
+<span class="black--text">{{ agendaVote[6].broke }} หุ้น</span>
+</v-flex>
+
+<v-flex style="text-align: right;" md4>
+<span class="black--text">0 %</span>
+</v-flex> -->
+
+<table style="width: 100%; text-align:center;">
+  <tr>
+    <td style="text-align: left;">เห็นด้วย</td>
+    <td style="text-align: right;">{{ agendaVote[6].accept }}</td>
+    <td style="text-align: left; padding-left: 10px;">หุ้น</td>
+    <td style="text-align: right;">99.9853 %</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">ไม่เห็นด้วย</td>
+    <td style="text-align: right;">{{ agendaVote[6].noaccept }}</td>
+    <td style="text-align: left; padding-left: 10px;">หุ้น</td>
+    <td style="text-align: right;">0.0147 %</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">งดออกเสียง</td>
+    <td style="text-align: right;">{{ agendaVote[6].abstain }}</td>
+    <td style="text-align: left; padding-left: 10px;">หุ้น</td>
+    <td style="text-align: right;">0 %</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">บัตรเสีย</td>
+    <td style="text-align: right;">{{ agendaVote[6].broke }}</td>
+    <td style="text-align: left; padding-left: 10px;">หุ้น</td>
+    <td style="text-align: right;">0 %</td>
+  </tr>
+</table>
+
+</v-flex>
+</v-layout>
+</section>
+</v-content>
 </div>
 <div v-if="i==9">
   <v-content style="padding: 0px; margin: 0px auto; width: 75%; height: 100%;">
     <section>
-      <v-layout row wrap class="border" style="margin:300px 0px;">
+      <v-layout row wrap class="border" style="margin:250px 0px;">
         <v-flex xs12>
-        <v-flex xs12>
-          <h2 class="black--text text-xs-center mb-5">วาระที่ {{ agendaVote[7].agenda }} {{ agendaVote[7].title }}</h2>
-        </v-flex>
-        <!-- <v-flex class="mb-4" md4>
+          <v-flex xs12>
+            <h2 style="font-size: 30px;" class="black--text text-xs-left mb-5">วาระที่ {{ agendaVote[7].agenda }} {{ agendaVote[7].title }}</h2>
+          </v-flex>
+          <!-- <v-flex class="mb-4" md4>
           <span class="mr-5 black--text">เห็นด้วย</span>
         </v-flex>
 
         <v-flex style="text-align: center;" md4>
-          <span class="black--text">{{ agendaVote[7].accept }} หุ้น</span>
-        </v-flex>
-
-        <v-flex style="text-align: right;" md4>
-          <span class="black--text">99.9853 %</span>
-        </v-flex>
-
-        <v-flex class="mb-4" md4>
-          <span style="float: left;"  class="mr-5 black--text">ไม่เห็นด้วย</span>
-        </v-flex>
-
-        <v-flex style="text-align: center;" md4>
-          <span class="black--text">{{ agendaVote[7].noaccept }} หุ้น</span>
-        </v-flex>
-
-        <v-flex style="text-align: right;" md4>
-          <span class="black--text">0.0147 %</span>
-        </v-flex>
-
-        <v-flex class="mb-4" md4>
-          <span style="float: left;"  class="mr-5 black--text">งดออกเสียง</span>
-        </v-flex>
-
-        <v-flex style="text-align: center;" md4>
-          <span class="black--text">{{ agendaVote[7].abstain }} หุ้น</span>
-        </v-flex>
-
-        <v-flex style="text-align: right;" md4>
-          <span class="black--text">0 %</span>
-        </v-flex>
-
-        <v-flex md4>
-          <span style="float: left;"  class="mr-5 black--text">บัตรเสีย</span>
-        </v-flex>
-
-        <v-flex style="text-align: center;" md4>
-          <span class="black--text">{{ agendaVote[7].broke }} หุ้น</span>
-        </v-flex>
-
-        <v-flex style="text-align: right;" md4>
-          <span class="black--text">0 %</span>
-        </v-flex> -->
-
-        <table style="width: 100%; text-align:center;">
-          <tr>
-            <td style="text-align: left;">เห็นด้วย</td>
-            <td style="text-align: right;">{{ agendaVote[7].accept }}</td>
-            <td style="text-align: left; padding-left: 10px;">หุ้น</td>
-            <td style="text-align: right;">99.9853 %</td>
-          </tr>
-          <tr>
-            <td style="text-align: left;">ไม่เห็นด้วย</td>
-            <td style="text-align: right;">{{ agendaVote[7].noaccept }}</td>
-            <td style="text-align: left; padding-left: 10px;">หุ้น</td>
-            <td style="text-align: right;">0.0147 %</td>
-          </tr>
-          <tr>
-            <td style="text-align: left;">งดออกเสียง</td>
-            <td style="text-align: right;">{{ agendaVote[7].abstain }}</td>
-            <td style="text-align: left; padding-left: 10px;">หุ้น</td>
-            <td style="text-align: right;">0 %</td>
-          </tr>
-          <tr>
-            <td style="text-align: left;">บัตรเสีย</td>
-            <td style="text-align: right;">{{ agendaVote[7].broke }}</td>
-            <td style="text-align: left; padding-left: 10px;">หุ้น</td>
-            <td style="text-align: right;">0 %</td>
-          </tr>
-        </table>
-
+        <span class="black--text">{{ agendaVote[7].accept }} หุ้น</span>
       </v-flex>
-      </v-layout>
-    </section>
-  </v-content>
+
+      <v-flex style="text-align: right;" md4>
+      <span class="black--text">99.9853 %</span>
+    </v-flex>
+
+    <v-flex class="mb-4" md4>
+    <span style="float: left;"  class="mr-5 black--text">ไม่เห็นด้วย</span>
+  </v-flex>
+
+  <v-flex style="text-align: center;" md4>
+  <span class="black--text">{{ agendaVote[7].noaccept }} หุ้น</span>
+</v-flex>
+
+<v-flex style="text-align: right;" md4>
+<span class="black--text">0.0147 %</span>
+</v-flex>
+
+<v-flex class="mb-4" md4>
+<span style="float: left;"  class="mr-5 black--text">งดออกเสียง</span>
+</v-flex>
+
+<v-flex style="text-align: center;" md4>
+<span class="black--text">{{ agendaVote[7].abstain }} หุ้น</span>
+</v-flex>
+
+<v-flex style="text-align: right;" md4>
+<span class="black--text">0 %</span>
+</v-flex>
+
+<v-flex md4>
+<span style="float: left;"  class="mr-5 black--text">บัตรเสีย</span>
+</v-flex>
+
+<v-flex style="text-align: center;" md4>
+<span class="black--text">{{ agendaVote[7].broke }} หุ้น</span>
+</v-flex>
+
+<v-flex style="text-align: right;" md4>
+<span class="black--text">0 %</span>
+</v-flex> -->
+
+<table style="width: 100%; text-align:center;">
+  <tr>
+    <td style="text-align: left;">เห็นด้วย</td>
+    <td style="text-align: right;">{{ agendaVote[7].accept }}</td>
+    <td style="text-align: left; padding-left: 10px;">หุ้น</td>
+    <td style="text-align: right;">99.9853 %</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">ไม่เห็นด้วย</td>
+    <td style="text-align: right;">{{ agendaVote[7].noaccept }}</td>
+    <td style="text-align: left; padding-left: 10px;">หุ้น</td>
+    <td style="text-align: right;">0.0147 %</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">งดออกเสียง</td>
+    <td style="text-align: right;">{{ agendaVote[7].abstain }}</td>
+    <td style="text-align: left; padding-left: 10px;">หุ้น</td>
+    <td style="text-align: right;">0 %</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">บัตรเสีย</td>
+    <td style="text-align: right;">{{ agendaVote[7].broke }}</td>
+    <td style="text-align: left; padding-left: 10px;">หุ้น</td>
+    <td style="text-align: right;">0 %</td>
+  </tr>
+</table>
+
+</v-flex>
+</v-layout>
+</section>
+</v-content>
 </div>
 <div v-if="i==10">
   <v-content style="padding: 0px; margin: 0px auto; width: 75%; height: 100%;">
     <section>
-      <v-layout row wrap class="border" style="margin:300px 0px;">
+      <v-layout row wrap class="border" style="margin:250px 0px;">
         <v-flex xs12>
-        <v-flex xs12>
-          <h2 class="black--text text-xs-center mb-5">วาระที่ {{ agendaVote[8].agenda }} {{ agendaVote[8].title }}</h2>
-        </v-flex>
+          <v-flex xs12>
+            <h2 style="font-size: 30px;" class="black--text text-xs-left mb-5">วาระที่ {{ agendaVote[8].agenda }} {{ agendaVote[8].title }}</h2>
+          </v-flex>
 
-        <!-- <v-flex class="mb-4" md4>
+          <!-- <v-flex class="mb-4" md4>
           <span class="mr-5 black--text">เห็นด้วย</span>
         </v-flex>
 
         <v-flex style="text-align: center;" md4>
-          <span class="black--text">{{ agendaVote[8].accept }} หุ้น</span>
-        </v-flex>
-
-        <v-flex style="text-align: right;" md4>
-          <span class="black--text">99.9853 %</span>
-        </v-flex>
-
-        <v-flex class="mb-4" md4>
-          <span style="float: left;"  class="mr-5 black--text">ไม่เห็นด้วย</span>
-        </v-flex>
-
-        <v-flex style="text-align: center;" md4>
-          <span class="black--text">{{ agendaVote[8].noaccept }} หุ้น</span>
-        </v-flex>
-
-        <v-flex style="text-align: right;" md4>
-          <span class="black--text">0.0147 %</span>
-        </v-flex>
-
-        <v-flex class="mb-4" md4>
-          <span style="float: left;"  class="mr-5 black--text">งดออกเสียง</span>
-        </v-flex>
-
-        <v-flex style="text-align: center;" md4>
-          <span class="black--text">{{ agendaVote[8].abstain }} หุ้น</span>
-        </v-flex>
-
-        <v-flex style="text-align: right;" md4>
-          <span class="black--text">0 %</span>
-        </v-flex>
-
-        <v-flex md4>
-          <span style="float: left;"  class="mr-5 black--text">บัตรเสีย</span>
-        </v-flex>
-
-        <v-flex style="text-align: center;" md4>
-          <span class="black--text">{{ agendaVote[8].broke }} หุ้น</span>
-        </v-flex>
-
-        <v-flex style="text-align: right;" md4>
-          <span class="black--text">0 %</span>
-        </v-flex> -->
-
-        <table style="width: 100%; text-align:center;">
-          <tr>
-            <td style="text-align: left;">เห็นด้วย</td>
-            <td style="text-align: right;">{{ agendaVote[8].accept }}</td>
-            <td style="text-align: left; padding-left: 10px;">หุ้น</td>
-            <td style="text-align: right;">99.9853 %</td>
-          </tr>
-          <tr>
-            <td style="text-align: left;">ไม่เห็นด้วย</td>
-            <td style="text-align: right;">{{ agendaVote[8].noaccept }}</td>
-            <td style="text-align: left; padding-left: 10px;">หุ้น</td>
-            <td style="text-align: right;">0.0147 %</td>
-          </tr>
-          <tr>
-            <td style="text-align: left;">งดออกเสียง</td>
-            <td style="text-align: right;">{{ agendaVote[8].abstain }}</td>
-            <td style="text-align: left; padding-left: 10px;">หุ้น</td>
-            <td style="text-align: right;">0 %</td>
-          </tr>
-          <tr>
-            <td style="text-align: left;">บัตรเสีย</td>
-            <td style="text-align: right;">{{ agendaVote[8].broke }}</td>
-            <td style="text-align: left; padding-left: 10px;">หุ้น</td>
-            <td style="text-align: right;">0 %</td>
-          </tr>
-        </table>
-
+        <span class="black--text">{{ agendaVote[8].accept }} หุ้น</span>
       </v-flex>
-      </v-layout>
-    </section>
-  </v-content>
+
+      <v-flex style="text-align: right;" md4>
+      <span class="black--text">99.9853 %</span>
+    </v-flex>
+
+    <v-flex class="mb-4" md4>
+    <span style="float: left;"  class="mr-5 black--text">ไม่เห็นด้วย</span>
+  </v-flex>
+
+  <v-flex style="text-align: center;" md4>
+  <span class="black--text">{{ agendaVote[8].noaccept }} หุ้น</span>
+</v-flex>
+
+<v-flex style="text-align: right;" md4>
+<span class="black--text">0.0147 %</span>
+</v-flex>
+
+<v-flex class="mb-4" md4>
+<span style="float: left;"  class="mr-5 black--text">งดออกเสียง</span>
+</v-flex>
+
+<v-flex style="text-align: center;" md4>
+<span class="black--text">{{ agendaVote[8].abstain }} หุ้น</span>
+</v-flex>
+
+<v-flex style="text-align: right;" md4>
+<span class="black--text">0 %</span>
+</v-flex>
+
+<v-flex md4>
+<span style="float: left;"  class="mr-5 black--text">บัตรเสีย</span>
+</v-flex>
+
+<v-flex style="text-align: center;" md4>
+<span class="black--text">{{ agendaVote[8].broke }} หุ้น</span>
+</v-flex>
+
+<v-flex style="text-align: right;" md4>
+<span class="black--text">0 %</span>
+</v-flex> -->
+
+<table style="width: 100%; text-align:center;">
+  <tr>
+    <td style="text-align: left;">เห็นด้วย</td>
+    <td style="text-align: right;">{{ agendaVote[8].accept }}</td>
+    <td style="text-align: left; padding-left: 10px;">หุ้น</td>
+    <td style="text-align: right;">99.9853 %</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">ไม่เห็นด้วย</td>
+    <td style="text-align: right;">{{ agendaVote[8].noaccept }}</td>
+    <td style="text-align: left; padding-left: 10px;">หุ้น</td>
+    <td style="text-align: right;">0.0147 %</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">งดออกเสียง</td>
+    <td style="text-align: right;">{{ agendaVote[8].abstain }}</td>
+    <td style="text-align: left; padding-left: 10px;">หุ้น</td>
+    <td style="text-align: right;">0 %</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">บัตรเสีย</td>
+    <td style="text-align: right;">{{ agendaVote[8].broke }}</td>
+    <td style="text-align: left; padding-left: 10px;">หุ้น</td>
+    <td style="text-align: right;">0 %</td>
+  </tr>
+</table>
+
+</v-flex>
+</v-layout>
+</section>
+</v-content>
 </div>
 <div v-if="i==11">
   <v-content style="padding: 0px; margin: 0px auto; width: 75%; height: 100%;">
     <section>
-      <v-layout row wrap class="border" style="margin:300px 0px;">
+      <v-layout row wrap class="border" style="margin: 234px 0px;">
         <v-flex xs12>
-        <v-flex xs12>
-          <h2 class="black--text text-xs-center mb-5">วาระที่ {{ agendaVote[9].agenda }} {{ agendaVote[9].title }}</h2>
-        </v-flex>
+          <v-flex xs12>
+            <h2 style="font-size: 30px;" class="black--text text-xs-left mb-5">วาระที่ {{ agendaVote[9].agenda }} {{ agendaVote[9].title }}</h2>
+          </v-flex>
 
-        <!-- <v-flex class="mb-4" md4>
+          <!-- <v-flex class="mb-4" md4>
           <span class="mr-5 black--text">เห็นด้วย</span>
         </v-flex>
 
         <v-flex style="text-align: center;" md4>
-          <span class="black--text">{{ agendaVote[9].accept }} หุ้น</span>
-        </v-flex>
-
-        <v-flex style="text-align: right;" md4>
-          <span class="black--text">99.9853 %</span>
-        </v-flex>
-
-        <v-flex class="mb-4" md4>
-          <span style="float: left;"  class="mr-5 black--text">ไม่เห็นด้วย</span>
-        </v-flex>
-
-        <v-flex style="text-align: center;" md4>
-          <span class="black--text">{{ agendaVote[9].noaccept }} หุ้น</span>
-        </v-flex>
-
-        <v-flex style="text-align: right;" md4>
-          <span class="black--text">0.0147 %</span>
-        </v-flex>
-
-        <v-flex class="mb-4" md4>
-          <span style="float: left;"  class="mr-5 black--text">งดออกเสียง</span>
-        </v-flex>
-
-        <v-flex style="text-align: center;" md4>
-          <span class="black--text">{{ agendaVote[9].abstain }} หุ้น</span>
-        </v-flex>
-
-        <v-flex style="text-align: right;" md4>
-          <span class="black--text">0 %</span>
-        </v-flex>
-
-        <v-flex md4>
-          <span style="float: left;"  class="mr-5 black--text">บัตรเสีย</span>
-        </v-flex>
-
-        <v-flex style="text-align: center;" md4>
-          <span class="black--text">{{ agendaVote[9].broke }} หุ้น</span>
-        </v-flex>
-
-        <v-flex style="text-align: right;" md4>
-          <span class="black--text">0 %</span>
-        </v-flex> -->
-
-        <table style="width: 100%; text-align:center;">
-          <tr>
-            <td style="text-align: left;">เห็นด้วย</td>
-            <td style="text-align: right;">{{ agendaVote[9].accept }}</td>
-            <td style="text-align: left; padding-left: 10px;">หุ้น</td>
-            <td style="text-align: right;">99.9853 %</td>
-          </tr>
-          <tr>
-            <td style="text-align: left;">ไม่เห็นด้วย</td>
-            <td style="text-align: right;">{{ agendaVote[9].noaccept }}</td>
-            <td style="text-align: left; padding-left: 10px;">หุ้น</td>
-            <td style="text-align: right;">0.0147 %</td>
-          </tr>
-          <tr>
-            <td style="text-align: left;">งดออกเสียง</td>
-            <td style="text-align: right;">{{ agendaVote[9].abstain }}</td>
-            <td style="text-align: left; padding-left: 10px;">หุ้น</td>
-            <td style="text-align: right;">0 %</td>
-          </tr>
-          <tr>
-            <td style="text-align: left;">บัตรเสีย</td>
-            <td style="text-align: right;">{{ agendaVote[9].broke }}</td>
-            <td style="text-align: left; padding-left: 10px;">หุ้น</td>
-            <td style="text-align: right;">0 %</td>
-          </tr>
-        </table>
-
+        <span class="black--text">{{ agendaVote[9].accept }} หุ้น</span>
       </v-flex>
-      </v-layout>
-    </section>
-  </v-content>
+
+      <v-flex style="text-align: right;" md4>
+      <span class="black--text">99.9853 %</span>
+    </v-flex>
+
+    <v-flex class="mb-4" md4>
+    <span style="float: left;"  class="mr-5 black--text">ไม่เห็นด้วย</span>
+  </v-flex>
+
+  <v-flex style="text-align: center;" md4>
+  <span class="black--text">{{ agendaVote[9].noaccept }} หุ้น</span>
+</v-flex>
+
+<v-flex style="text-align: right;" md4>
+<span class="black--text">0.0147 %</span>
+</v-flex>
+
+<v-flex class="mb-4" md4>
+<span style="float: left;"  class="mr-5 black--text">งดออกเสียง</span>
+</v-flex>
+
+<v-flex style="text-align: center;" md4>
+<span class="black--text">{{ agendaVote[9].abstain }} หุ้น</span>
+</v-flex>
+
+<v-flex style="text-align: right;" md4>
+<span class="black--text">0 %</span>
+</v-flex>
+
+<v-flex md4>
+<span style="float: left;"  class="mr-5 black--text">บัตรเสีย</span>
+</v-flex>
+
+<v-flex style="text-align: center;" md4>
+<span class="black--text">{{ agendaVote[9].broke }} หุ้น</span>
+</v-flex>
+
+<v-flex style="text-align: right;" md4>
+<span class="black--text">0 %</span>
+</v-flex> -->
+
+<table style="width: 100%; text-align:center;">
+  <tr>
+    <td style="text-align: left;">เห็นด้วย</td>
+    <td style="text-align: right;">{{ agendaVote[9].accept }}</td>
+    <td style="text-align: left; padding-left: 10px;">หุ้น</td>
+    <td style="text-align: right;">99.9853 %</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">ไม่เห็นด้วย</td>
+    <td style="text-align: right;">{{ agendaVote[9].noaccept }}</td>
+    <td style="text-align: left; padding-left: 10px;">หุ้น</td>
+    <td style="text-align: right;">0.0147 %</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">งดออกเสียง</td>
+    <td style="text-align: right;">{{ agendaVote[9].abstain }}</td>
+    <td style="text-align: left; padding-left: 10px;">หุ้น</td>
+    <td style="text-align: right;">0 %</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">บัตรเสีย</td>
+    <td style="text-align: right;">{{ agendaVote[9].broke }}</td>
+    <td style="text-align: left; padding-left: 10px;">หุ้น</td>
+    <td style="text-align: right;">0 %</td>
+  </tr>
+</table>
+
+</v-flex>
+</v-layout>
+</section>
+</v-content>
 </div>
 <div v-if="i==12">
   <v-layout style="margin-top: 200px;" column align-center justify-center class="white--text">
-    <img src="/static/img/icons/logo.gif" height="100" class="mt-5 mb-5">
+    <img src="/static/img/icons/logo.png" height="100" class="mt-5 mb-5">
     <!-- <h1 class="white--text mb-4 display-1 text-xs-center">Annual General Meeting of Shareholders {{ new Date().getFullYear() }}</h1>
     <div class="white--text subheading text-xs-center">การประชุมสามัญผู้ถือหุ้นประจำปี {{ new Date().getFullYear() }}</div> -->
-    <h1 class="text-xs-center">ขอขอบคุณผู้ถือหุ้นทุกท่านที่เข้ามาร่วมประชุม</h1>
+    <h1 style="font: bold 50px 'Arial'; font-size: 50px!important;" class="text-xs-center">ขอขอบคุณผู้ถือหุ้นทุกท่านที่เข้ามาร่วมประชุม</h1>
   </v-layout>
 </div>
+
+<v-footer style="background-color: green;">
+  <v-flex xs6 pl-3 text-xs-left white--text>
+    &copy; {{ new Date().getFullYear() }} Internet Thailand Public Company Limited
+  </v-flex>
+  <v-flex xs6 text-xs-right pr-3>
+    23 เมษายน 2561
+  </v-flex>
+</v-footer>
+
+</v-content>
 <!-- <p id="output"> {{ arr[i] }} </p> -->
 <!-- <v-btn color="primary" @click="prevItem">Previous</v-btn>
 <v-btn color="primary" @click="nextItem">Next</v-btn> -->
@@ -1113,7 +1117,11 @@ export default {
         this.nextItem()
       }
     })
+    window.addEventListener('click', this.nextItem)
   }
+  // beforeDestroy () {
+  //   window.removeEventListener('click', this.nextItem)
+  // }
 }
 </script>
 
@@ -1132,13 +1140,22 @@ export default {
   /* opacity: 0.9; */
   background: #ffffff;
 }
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
+}
 /* .centerDiv{
-  margin: 0;
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
+margin: 0;
+position: absolute;
+top: 55%;
+left: 50%;
+margin-right: -50%;
+transform: translate(-50%, -50%);
 } */
 table, th, td {
   border: 1px solid white;
@@ -1151,5 +1168,9 @@ td {
   padding-top: 20px;
   overflow: hidden;
   white-space: nowrap;
+  font-size: 20px;
+}
+span {
+  font-size: 20px;
 }
 </style>
