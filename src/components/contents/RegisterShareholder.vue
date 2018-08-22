@@ -165,7 +165,7 @@ export default {
       shareholder: [],
       proxyDialog: false,
       registerDialog: false,
-      title: [ 'นาย', 'นาง', 'น.ส.' ],
+      title: [ 'นาย', 'นาง', 'นางสาว' ],
       proxyTitle: '',
       proxyName: '',
       proxyLastname: '',
@@ -188,7 +188,7 @@ export default {
     register (registerBy) {
       var data = {}
       if (registerBy === 'proxy') {
-        if (this.proxyTitle === '' || this.proxyName === '' || this.proxyLastname === '') {
+        if (this.proxyTitle === '' || this.proxyName === '' || this.proxyLastname === '' || this.proxyTitle === null || this.proxyName === null || this.proxyLastname === null) {
           this.checkProxyForm = true
           this.$swal('กรุณากรอกข้อมูลให้ครบค่ะ', '', 'error')
           this.Loading = false
@@ -203,51 +203,53 @@ export default {
             'registerby': 'manassanan.bo' }
         }
       } else {
-        const swalWithBootstrapButtons = this.$swal.mixin({
-          confirmButtonClass: 'btn btn-success',
-          cancelButtonClass: 'btn btn-danger',
-          buttonsStyling: false
-        })
-
-        swalWithBootstrapButtons({
-          title: 'Are you sure?',
-          text: "You won't be able to revert this!",
-          type: 'warning',
-          showCancelButton: true,
-          confirmButtonText: 'Yes, delete it!',
-          cancelButtonText: 'No, cancel!',
-          reverseButtons: true
-        }).then((result) => {
-          if (result.value) {
-            swalWithBootstrapButtons(
-              'Deleted!',
-              'Your file has been deleted.',
-              'success'
-            )
-          } else if (
-            // Read more about handling dismissals
-            result.dismiss === this.$swal.DismissReason.cancel
-          ) {
-            swalWithBootstrapButtons(
-              'Cancelled',
-              'Your imaginary file is safe :)',
-              'error'
-            )
-          }
-        })
+        // const swalWithBootstrapButtons = this.$swal.mixin({
+        //   confirmButtonClass: 'btn btn-success',
+        //   cancelButtonClass: 'btn btn-danger',
+        //   buttonsStyling: false
+        // })
+        //
+        // swalWithBootstrapButtons({
+        //   title: 'Are you sure?',
+        //   text: "You won't be able to revert this!",
+        //   type: 'warning',
+        //   showCancelButton: true,
+        //   confirmButtonText: 'Yes, delete it!',
+        //   cancelButtonText: 'No, cancel!',
+        //   reverseButtons: true
+        // }).then((result) => {
+        //   if (result.value) {
+        //     swalWithBootstrapButtons(
+        //       'Deleted!',
+        //       'Your file has been deleted.',
+        //       'success'
+        //     )
+        //   } else if (
+        //     // Read more about handling dismissals
+        //     result.dismiss === this.$swal.DismissReason.cancel
+        //   ) {
+        //     swalWithBootstrapButtons(
+        //       'Cancelled',
+        //       'Your imaginary file is safe :)',
+        //       'error'
+        //     )
+        //   }
+        // })
         data = {
           'registertype': registerBy,
           'memberid': this.selectedItem.info.memberid,
           'registerby': 'manassanan.bo' }
       }
 
-      this.axios.post('http://203.154.58.87:5000' + '/register/2/2018', data).then((response) => {
+      // this.axios.post('http://203.154.58.87:5000' + '/register/2/2018', data).then((response) => {
+      this.axios.post('http://localhost:5000' + '/register/2/2018', data).then((response) => {
         // var result = JSON.parse(response.data)
         var result = response.data
         if (response.status === 200) {
           if (result.status === 'success') {
             this.clearProxyDialog()
             console.log(result)
+            this.proxyDialog = false
             this.selectedItem.info.register = result.info
             // this.shareholder[result.info.id - 1].info = result.info
             this.queryShareholder()
@@ -276,6 +278,12 @@ export default {
     selectedItem () {
       this.showInfo = true
       console.log(this.selectedItem)
+    },
+    proxyTitle () {
+      console.log(this.proxyTitle)
+    },
+    proxyName () {
+      console.log(this.proxyName)
     }
   }
 
