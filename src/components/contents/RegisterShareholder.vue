@@ -3,7 +3,7 @@
     <h1 style="font-weight: 900; font-size:2.5em">ลงทะเบียนเข้างาน</h1>
     <v-layout row wrap class="mt-4">
       <v-flex xs12 sm2>
-        <h2 >ค้นหา</h2>
+        <h2>ค้นหา</h2>
       </v-flex>
       <v-flex xs12 sm8>
         <!-- <v-text-field v-model="searchText" v-on:change="searchShareholder" solo label="ชื่อ / นามสกุล / บริษัท / เลขผู้ถือหุ้น"></v-text-field> -->

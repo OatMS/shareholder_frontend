@@ -80,7 +80,7 @@ export default {
   width: 50%
 }
 .outerDiv{
-  padding: 2em 1em;
+  padding: 3em 1em;
 }
 .centerDiv{
   display: flex;
@@ -89,7 +89,7 @@ export default {
 }
 @media only screen and (max-width: 600px){
   .loginLogo{
-    width: 70%
+    width: 100%
   }
 }
 </style>

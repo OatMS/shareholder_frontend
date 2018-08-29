@@ -1,29 +1,29 @@
 <template lang="html">
   <div>
-    <h1 style="text-align:center; font-size:2.3em; " class="mt-4">ผลคะแนนวาระการประชุมครั้งที่ 2 ปี 2018</h1>
+    <h1 style="text-align:center; font-size:2.3em;" class="mt-5">ผลคะแนนวาระการประชุมครั้งที่ 2 ปี 2018</h1>
     <v-dialog v-model="dialog" max-width="300px">
       <!-- <v-btn slot="activator" color="primary" dark class="mb-3">เพิ่มวาระ</v-btn> -->
       <v-card>
         <v-card-title>
           <span class="headline">บันทึกคะแนน</span>
         </v-card-title>
-      <v-card-text>
-        <v-container grid-list-md>
-          <v-layout wrap>
-            <v-flex xs12>
-              <v-text-field label="เห็นด้วย" placeholder="271728752"></v-text-field>
-            </v-flex>
-            <v-flex xs12>
-              <v-text-field label="ไม่เห็นด้วย" placeholder="40000"></v-text-field>
-            </v-flex>
-            <v-flex xs12>
-              <v-text-field label="งดออกเสียง" placeholder="375000"></v-text-field>
-            </v-flex>
-            <v-flex xs12>
-              <v-text-field label="บัตรเสีย"></v-text-field>
-            </v-flex>
-          </v-layout>
-        </v-container>
+        <v-card-text>
+          <v-container grid-list-md>
+            <v-layout wrap>
+              <v-flex xs12>
+                <v-text-field label="เห็นด้วย" placeholder="271728752"></v-text-field>
+              </v-flex>
+              <v-flex xs12>
+                <v-text-field label="ไม่เห็นด้วย" placeholder="40000"></v-text-field>
+              </v-flex>
+              <v-flex xs12>
+                <v-text-field label="งดออกเสียง" placeholder="375000"></v-text-field>
+              </v-flex>
+              <v-flex xs12>
+                <v-text-field label="บัตรเสีย"></v-text-field>
+              </v-flex>
+            </v-layout>
+          </v-container>
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
@@ -34,38 +34,40 @@
     </v-dialog>
     <v-data-table
     :headers="headers"
-    :items="desserts"
-    hide-actions
+    :items="datatable"
     class="elevation-1"
     >
     <template slot="items" slot-scope="props">
       <!-- <v-layout wrap>
-        <v-flex xs12 sm1 md1>
-          <td>{{ props.item.name }}</td>
-        </v-flex>
-        <v-flex xs12 sm8 md8>
-          <td class="text-xs-left">{{ props.item.agendaname }}</td>
-        </v-flex>
-        <v-flex xs12 sm2 md2>
-          <td class="justify-right layout px-0">
-            <v-btn small round color="primary" dark>คำนวณคะแนน</v-btn>
-          </td>
-        </v-flex>
-      </v-layout> -->
+      <v-flex xs12 sm1 md1>
       <td>{{ props.item.name }}</td>
-      <td class="text-xs-left">{{ props.item.agendaname }}</td>
-      <td class="justify-right layout px-0">
-        <v-btn small round color="primary" @click="editItem(props.item)" dark>คำนวณคะแนน</v-btn>
-      </td>
-      <!-- <td class="text-xs-right">{{ props.item.shortname }}</td>
-      <td class="text-xs-right">{{ props.item.carbs }}</td>
-      <td class="text-xs-right">{{ props.item.protein }}</td> -->
+    </v-flex>
+    <v-flex xs12 sm8 md8>
+    <td class="text-xs-left">{{ props.item.agendaname }}</td>
+  </v-flex>
+  <v-flex xs12 sm2 md2>
+  <td class="justify-right layout px-0">
+  <v-btn small round color="primary" dark>คำนวณคะแนน</v-btn>
+</td>
+</v-flex>
+</v-layout> -->
+<td>{{ props.item.name }}</td>
+<td class="text-xs-left">{{ props.item.agendaname }}</td>
+<td class="justify-right layout px-0">
+  <v-btn small round color="primary" @click="editItem(props.item)" dark>คำนวณคะแนน</v-btn>
+</td>
+<!-- <td class="text-xs-right">{{ props.item.shortname }}</td>
+<td class="text-xs-right">{{ props.item.carbs }}</td>
+<td class="text-xs-right">{{ props.item.protein }}</td> -->
 
-    </template>
-    <template slot="no-data">
-      <v-btn color="primary" @click="initialize">Reset</v-btn>
-    </template>
-  </v-data-table>
+</template>
+<template slot="no-data">
+  <v-btn color="primary" @click="initialize">Reset</v-btn>
+</template>
+<template slot="pageText" slot-scope="props">
+  Lignes {{ props.pageStart }} - {{ props.pageStop }} de {{ props.itemsLength }}
+</template>
+</v-data-table>
 </div>
 </template>
 
@@ -88,7 +90,7 @@ export default {
       // { text: 'Protein (g)', value: 'protein', sortable: false },
       { text: 'Actions', value: 'name', sortable: false }
     ],
-    desserts: [],
+    datatable: [],
     editedIndex: -1,
     editedItem: {
       name: '',
@@ -122,7 +124,7 @@ export default {
   },
   methods: {
     initialize () {
-      this.desserts = [
+      this.datatable = [
         {
           name: '1',
           subname: '',
@@ -238,12 +240,12 @@ export default {
       ]
     },
     editItem (item) {
-      this.editedIndex = this.desserts.indexOf(item)
+      this.editedIndex = this.datatable.indexOf(item)
       this.editedItem = Object.assign({}, item)
       this.dialog = true
     },
     deleteItem (item) {
-      const index = this.desserts.indexOf(item)
+      const index = this.datatable.indexOf(item)
       this.$swal({
         title: 'อ๊ะ! อ๊ะ! เดี๋ยวก่อน',
         text: 'คุณต้องการลบรายการที่เลือกอย่างถาวรหรือไม่',
@@ -258,7 +260,7 @@ export default {
         reverseButtons: true
       }).then((result) => {
         if (!result.value) {
-          this.$swal('ข้อมูลถูกลบ', 'คุณได้ลบข้อมูลวาระสำเร็จแล้ว', 'success') && this.desserts.splice(index, 1)
+          this.$swal('ข้อมูลถูกลบ', 'คุณได้ลบข้อมูลวาระสำเร็จแล้ว', 'success') && this.datatable.splice(index, 1)
         }
       })
     },
@@ -273,9 +275,9 @@ export default {
     },
     save () {
       if (this.editedIndex > -1) {
-        Object.assign(this.desserts[this.editedIndex], this.editedItem)
+        Object.assign(this.datatable[this.editedIndex], this.editedItem)
       } else {
-        this.desserts.push(this.editedItem)
+        this.datatable.push(this.editedItem)
       }
       this.close()
     },

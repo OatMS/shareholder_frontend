@@ -1,34 +1,34 @@
 <template lang="html">
-  <div id="app">
+  <div class="bg">
     <v-content class="centerDiv">
       <section>
         <v-layout column align-center justify-center class="white--text border">
-          <v-flex xs12>
+          <v-flex xs12 md12>
             <h1 class="white--text mb-2 text-xs-center">ชื่อผู้ถือหุ้น</h1>
             <h1 class="white--text mb-2 text-xs-center">ชื่อวาระ (แสดงชื่อย่อ)</h1>
             <div class="subheading mb-3 text-xs-center">จำนวนหุ้น</div>
           </v-flex>
-          <v-flex xs12>
+          <v-flex xs12 md12>
             <v-btn :loading="loading" :disabled="loading" round class="green darken-4 mt-5" dark large @click.native="loader = 'loading'">เห็นด้วย
               <span slot="loader">รอสักครู่...</span>
             </v-btn>
           </v-flex>
-          <v-flex xs12>
+          <v-flex xs12 md12>
             <v-btn :loading="loading2" :disabled="loading2" round class="green darken-4 mt-5" dark large @click.native="loader = 'loading2'">ไม่เห็นด้วย
               <span slot="loader">รอสักครู่...</span>
             </v-btn>
           </v-flex>
-          <v-flex xs12>
+          <v-flex xs12 md12>
             <v-btn :loading="loading3" :disabled="loading3" round class="green darken-4 mt-5" dark large @click.native="loader = 'loading3'">งดออกเสียง
               <span slot="loader">รอสักครู่...</span>
             </v-btn>
           </v-flex>
-          <v-flex xs12>
+          <v-flex xs12 md12>
             <v-btn :loading="loading4" :disabled="loading4" round class="green darken-4 mt-5" dark large @click.native="loader = 'loading4'">บัตรเสีย
               <span slot="loader">รอสักครู่...</span>
             </v-btn>
           </v-flex>
-          <v-flex xs6>
+          <v-flex xs6 md6>
             <v-btn round class="red darken-4 mr-2 mt-5" dark @click.native="cancel">ยกเลิก</v-btn>
             <v-btn round class="primary darken-4 mt-5" dark @click.native="saveData">บันทึก</v-btn>
           </v-flex>
@@ -126,11 +126,17 @@ export default {
     transform: rotate(360deg);
   }
 }
-#app {
+.bg {
   background-image: url('/static/img/icons/104.jpg');
   height: 100%;
+  /* height: -webkit-fill-available !important; */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+@media only screen and (max-width: 600px) {
+  .cg {
+    height: auto !important;
+  }
 }
 </style>

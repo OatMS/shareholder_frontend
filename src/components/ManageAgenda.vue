@@ -1,6 +1,6 @@
 <template>
-  <v-app id="inspire">
-    <v-navigation-drawer fixed :clipped="$vuetify.breakpoint.lgAndUp" app v-model="drawer">
+  <div>
+    <v-navigation-drawer dark fixed :clipped="$vuetify.breakpoint.lgAndUp" app v-model="drawer">
       <v-list dense>
         <template v-for="item in items">
           <v-layout row v-if="item.heading" align-center :key="item.heading">
@@ -41,35 +41,46 @@
             </v-list-tile-content>
           </v-list-tile>
         </template>
+        <v-list-tile @click="logout()">
+          <v-list-tile-action>
+            <v-icon>lock_open</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>
+              ลงชื่อออก
+            </v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
       </v-list>
-    </v-navigation-drawer>
+    </v-navigation-drawer >
+
     <v-toolbar color="blue darken-3" dark app :clipped-left="$vuetify.breakpoint.lgAndUp" fixed >
       <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
-        <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+        <v-toolbar-side-icon @click.stop="drawer = !drawer" class="hidden-md-and-up"></v-toolbar-side-icon>
         <span>INET Shareholder</span>
       </v-toolbar-title>
       <v-spacer> </v-spacer>
 
       <span> <h3>oat.ms@thaimail.com</h3></span>
       <v-tooltip bottom>
-      <v-btn fab dark small slot="activator" color="indigo" @click="logout()">
-        <v-icon>lock_open</v-icon>
-        <!-- <v-icon lass="material-icons" dark>account_circle</v-icon> -->
-        <!-- <v-icon class="person-icon" @click="logout()" large dark>account_circle</v-icon> -->
-      </v-btn>
-      <span>ลงชื่อออก</span>
+        <v-btn fab dark small slot="activator" color="indigo" @click="logout()">
+          <v-icon>lock_open</v-icon>
+          <!-- <v-icon lass="material-icons" dark>account_circle</v-icon> -->
+          <!-- <v-icon class="person-icon" @click="logout()" large dark>account_circle</v-icon> -->
+        </v-btn>
+        <span>ลงชื่อออก</span>
       </v-tooltip>
     </v-toolbar>
 
     <v-content>
       <router-view/>
     </v-content>
-    <v-footer color="primary"  class="pa-3 shareholder-footer">
+    <v-footer color="primary" class="pa-3 shareholder-footer">
       <v-flex xs12 py-3 text-xs-center white--text>
         &copy; {{ new Date().getFullYear() }} Internet Thailand Public Company Limited
       </v-flex>
     </v-footer>
-  </v-app>
+  </div>
 </template>
 
 <script>
@@ -82,7 +93,7 @@ export default {
       items: [
         { icon: 'assignment_ind', text: 'ลงทะเบียนผู้ถือหุ้น', link: '/' },
         { icon: 'assignment_returned', text: 'คำนวณคะแนน', link: '/calculateScore' },
-        { icon: 'gradient', text: 'สแกนบัตรลงคะแนน', link: '/qrcode/shareholderid' },
+        { icon: 'phone_iphone', text: 'สแกนบัตรลงคะแนน', link: '/qrcode/shareholderid' },
         // {
         //   icon: 'keyboard_arrow_up',
         //   'icon-alt': 'keyboard_arrow_down',
@@ -106,6 +117,7 @@ export default {
             // { icon: 'slideshow', text: 'จัดการวาระการประชุม', link: '/agendaList' }
           ]
         }
+        // { icon: 'lock_open', text: 'ลงชื่อออก', link: '/login' }
       ]
     }
   },
@@ -139,5 +151,12 @@ export default {
 
 .child-padding{
   padding-left: 20px;
+}
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
 }
 </style>

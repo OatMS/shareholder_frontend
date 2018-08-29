@@ -52,10 +52,10 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
+
     <v-data-table
     :headers="headers"
     :items="desserts"
-    hide-actions
     class="elevation-1"
     >
     <template slot="items" slot-scope="props">
@@ -75,6 +75,9 @@
     </template>
     <template slot="no-data">
       <v-btn color="primary" @click="initialize">Reset</v-btn>
+    </template>
+    <template slot="pageText" slot-scope="props">
+      Lignes {{ props.pageStart }} - {{ props.pageStop }} de {{ props.itemsLength }}
     </template>
   </v-data-table>
 </div>
@@ -311,4 +314,10 @@ export default {
 </script>
 
 <style lang="css">
+.elevation-1{
+  margin: 15px;
+}
+td{
+  margin-top: 5px;
+}
 </style>

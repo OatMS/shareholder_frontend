@@ -1,11 +1,14 @@
 <template lang="html">
   <v-app>
     <v-content>
-      <div id="app">
+      <div class="vertical-center">
         <v-container fluid fill-height>
           <v-layout align-center justify-center>
             <v-flex xs12 sm8 md4>
-              <v-card class="elevation-24">
+              <div class="text-xs-center">
+                <img src="/static/img/icons/logo.png" height="180px">
+              </div>
+              <v-card color="grey lighten-3" class="elevation-24">
                 <v-toolbar dark color="green">
                   <v-toolbar-title>INET Shareholder Meeting</v-toolbar-title>
                 </v-toolbar>
@@ -17,13 +20,13 @@
                 </v-card-text>
                 <v-card-actions>
                   <v-spacer></v-spacer>
-                  <v-btn depressed class="widthfull" color="success" @click.native="login">
+                  <v-btn round depressed class="widthfull" color="success" @click.native="login">
                     <v-icon class="pr-2">lock</v-icon>เข้าสู่ระบบ
                   </v-btn>
                   <v-snackbar :top="y === 'top'" v-model="snackbar"> {{ text }}</v-snackbar>
                 </v-card-actions>
-                <v-footer  class="pa-3">
-                  <v-flex xs12 py-3 text-xs-center black--text>
+                <v-footer color="blue-grey darken-1" class="pa-3">
+                  <v-flex xs12 py-3 text-xs-center white--text>
                     &copy; {{ new Date().getFullYear() }} INET
                   </v-flex>
                 </v-footer>
@@ -48,7 +51,7 @@ export default {
       x: null,
       mode: '',
       timeout: 6000,
-      text: 'test'
+      text: 'ยินดีต้อนรับเข้าสู่ INET Shareholder'
     }
   },
 
@@ -81,7 +84,6 @@ export default {
         this.$swal('กรุณากรอก Password', '', 'warning')
         return
       }
-      this.snackbar = true
       this.Loading = false
 
       this.axios.post('http://203.154.58.87:5000' + '/login', data).then((response) => {
@@ -90,7 +92,8 @@ export default {
           console.log(result)
         }
         if (result.status === 'success') {
-          window.location = '/manageAgenda'
+          this.snackbar = true
+          setTimeout(function () { window.location = '/manageAgenda' }, 2000)
           // this.$cookies.set('information', Encode.encode(JSON.stringify(result.oneIdData[0])), null, '/', process.env.DOMAIN)
           this.$cookies.set('username_shareholder', this.username)
         } else {
@@ -114,12 +117,45 @@ export default {
 </script>
 
 <style lang="css">
-#app {
-  background-image: url('/static/img/icons/104.jpg');
-  height: 100%;
-  background-position: center;
+/* #app {
+background-image: url('/static/img/icons/104.jpg');
+height: 100%;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+} */
+.content:before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
+
+  /* background-position: center; */
   background-repeat: no-repeat;
   background-size: cover;
+  background-image: url('/static/img/icons/bg.jpg');
+  height: 100%;
+
+  -webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+  -o-filter: blur(10px);
+  -ms-filter: blur(10px);
+  filter: blur(10px);
+}
+.content {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.vertical-center {
+  min-height: 100%;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
 }
 
 </style>
