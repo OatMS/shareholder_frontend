@@ -6,7 +6,7 @@
     <v-btn small>ยกเลิก</v-btn>
   </v-layout> -->
   <div>
-    <table align="right" style="margin-bottom: 20px;">
+    <table style="margin-right: 20px;" align="right">
       <tr>
         <th rowspan="2"><img class="img" src="/static/img/icons/qrtest.png">
           <span style="font-weight: bold; padding-top: 0px">4010008296</span>
@@ -14,11 +14,11 @@
         <th colspan="3">บัตรลงคะแนนการประชุมสามัญผู้ถือหุ้น ประจำปี 2561</th>
       </tr>
       <tr>
-        <td>
+        <td style="font-weight: bold; background-color: #E8E8E8;">
           วาระที่ 4
         </td>
-        <td style="text-align: left;" class="tablea">
-          พิจารณาอนุมัติงบการเงินประจำปีสิ้นสุด ณ วันที่ 31 ธันวาคม 2560 ซึ่งผ่านการตรวจสอบจากผู้สอบบัญชี
+        <td style="font-weight: bold; text-align: left; background-color: #E8E8E8;" class="tablea">
+          พิจารณาอนุมัติงบการเงินประจำปีสิ้นสุด ณ วันที่ 31 ธันวาคม 2560
         </td>
       </tr>
       <tr>
@@ -53,7 +53,7 @@
       </td>
     </tr>
   </table>
-  <table style="margin-top: 20px; margin-bottom: 20px;">
+  <table style="margin-top: 10px; margin-left: 20px;">
     <tr>
       <th rowspan="2"><img class="img" src="/static/img/icons/qrtest.png">
         <span style="font-weight: bold; padding-top: 0px">4010008296</span>
@@ -65,7 +65,7 @@
         วาระที่ 2
       </td>
       <td style="text-align: left;" class="tablea">
-        พิจารณารับรองรายงานการประชุมสามัญผู้ถือหุ้นประจำปี 2560 ซึ่งประชุมเมื่อวันที่ 21 เมษายน 2560
+        พิจารณารับรองรายงานการประชุมสามัญผู้ถือหุ้นประจำปี 2560
       </td>
     </tr>
     <tr>
@@ -100,7 +100,7 @@
     </td>
   </tr>
 </table>
-<table align="right" style="margin-bottom: 20px;">
+<table align="right" style="margin-right: 20px;">
   <tr>
     <th rowspan="2"><img class="img" src="/static/img/icons/qrtest.png">
       <span style="font-weight: bold; padding-top: 0px">4010008296</span>
@@ -147,7 +147,7 @@
   </td>
 </tr>
 </table>
-<table style="margin-top: 20px; margin-bottom: 20px;">
+<table style="margin-left: 20px;">
   <tr>
     <th rowspan="2"><img class="img" src="/static/img/icons/qrtest.png">
       <span style="font-weight: bold; padding-top: 0px">4010008296</span>
@@ -159,7 +159,7 @@
       วาระที่ 5
     </td>
     <td style="text-align: left;" class="tablea">
-      พิจารณาจัดสรรกำไรสุทธิเป็นทุนสำรองตามกฎหมายและการจ่ายเงินปันผลสำหรับผลประกอบการประจำปี 2560
+      พิจารณาจัดสรรกำไรสุทธิเป็นทุนสำรองตามกฎหมายและการจ่ายเงินปันผล
     </td>
   </tr>
   <tr>
@@ -194,7 +194,7 @@
   </td>
 </tr>
 </table>
-<table align="right" style="margin-bottom: 20px;">
+<table align="right" style="margin-right: 20px;">
   <tr>
     <th rowspan="2"><img class="img" src="/static/img/icons/qrtest.png">
       <span style="font-weight: bold; padding-top: 0px">4010008296</span>
@@ -241,7 +241,7 @@
   </td>
 </tr>
 </table>
-<table style="margin-top: 20px; margin-bottom: 20px;">
+<table style="margin-left: 20px;">
   <tr>
     <th rowspan="2"><img class="img" src="/static/img/icons/qrtest.png">
       <span style="font-weight: bold; padding-top: 0px">4010008296</span>
@@ -288,7 +288,7 @@
   </td>
 </tr>
 </table>
-<table align="right" style="margin-bottom: 20px;">
+<table align="right" style="margin-right: 20px;">
   <tr>
     <th rowspan="2"><img class="img" src="/static/img/icons/qrtest.png">
       <span style="font-weight: bold; padding-top: 0px">4010008296</span>
@@ -300,7 +300,7 @@
       วาระที่ 7
     </td>
     <td style="text-align: left;" class="tablea">
-      พิจารณาอนุมัติการกำหนดค่าตอบแทนกรรมการ
+      พิจารณาอนุมัติการกำหนดค่าตอบแทนกรรมการของวันที่ 21 เมาษายน 2561
     </td>
   </tr>
   <tr>
@@ -335,7 +335,7 @@
   </td>
 </tr>
 </table>
-<table style="margin-top: 20px; margin-bottom: 20px;">
+<table style="margin-left: 20px;">
   <tr>
     <th rowspan="2"><img class="img" src="/static/img/icons/qrtest.png">
       <span style="font-weight: bold; padding-top: 0px">4010008296</span>
@@ -382,7 +382,7 @@
   </td>
 </tr>
 </table>
-<table align="right" style="margin-bottom: 20px;">
+<table align="right" style="margin-right: 20px;">
   <tr>
     <th rowspan="2"><img class="img" src="/static/img/icons/qrtest.png">
       <span style="font-weight: bold; padding-top: 0px">4010008296</span>
@@ -429,7 +429,7 @@
   </td>
 </tr>
 </table>
-<table style="margin-top: 20px; margin-bottom: 20px;">
+<table style="margin-left: 20px;">
   <tr>
     <th rowspan="2"><img class="img" src="/static/img/icons/qrtest.png">
       <span style="font-weight: bold; padding-top: 0px">4010008296</span>
@@ -476,7 +476,7 @@
   </td>
 </tr>
 </table>
-<table align="right" style="margin-bottom: 20px;">
+<table align="right" style="margin-right: 20px;">
   <tr>
     <th rowspan="2"><img class="img" src="/static/img/icons/qrtest.png">
       <span style="font-weight: bold; padding-top: 0px">4010008296</span>
@@ -488,7 +488,7 @@
       วาระที่ 11
     </td>
     <td style="text-align: left;" class="tablea">
-
+      สมมติว่ามี ชื่อวาระ เพื่อทดสอบปริ้นเตอร์ ประจำปี 2561
     </td>
   </tr>
   <tr>
@@ -523,7 +523,7 @@
   </td>
 </tr>
 </table>
-<table style="margin-top: 20px; margin-bottom: 20px;">
+<table style="margin-left: 20px;">
   <tr>
     <th rowspan="2"><img class="img" src="/static/img/icons/qrtest.png">
       <span style="font-weight: bold; padding-top: 0px">4010008296</span>
@@ -535,7 +535,7 @@
       วาระที่ 10
     </td>
     <td style="text-align: left;" class="tablea">
-
+      สมมติว่ามี ชื่อวาระ เพื่อทดสอบปริ้นเตอร์ ประจำปี 2561
     </td>
   </tr>
   <tr>
@@ -597,12 +597,14 @@ page[size="A4"] {
 }
 table {
   border-collapse: collapse;
-  margin-left: 30px;
-  margin-right: 30px;
+  margin-bottom: 11px;
 }
 
 table, th, td {
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  border-left: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
   /* table-layout: auto; */
 }
 
@@ -613,17 +615,18 @@ th, td {
   font-size:9px;
 }
 span {
-  padding-top: 6px;
+  padding-top: 10px;
   text-align: center;
   display: block;
   font-size:8px;
 }
 .img {
-  height: 50px;
+  margin-top: 5px;
+  height: 40px;
 }
 .tablea {
   table-layout: auto;
-  width: 180px;
+  width: 211px;
   height: 10px;
 }
 .imgckbox {
@@ -637,4 +640,5 @@ span {
 .tableblock {
   display: block;
 }
+
 </style>
